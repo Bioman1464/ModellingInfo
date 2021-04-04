@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/mainMenuNavFragment">
+
+    <fragment
+        android:id="@+id/mainMenuNavFragment"
+        android:name="bio.models.three_d.MainMenuNavFragment"
+        android:label="fragment_main_menu_nav"
+        tools:layout="@layout/fragment_menu_nav" >
+        <action
+            android:id="@+id/action_mainMenuNavFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="bio.models.three_d.main_menu.article.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" />
 
 </navigation>
