@@ -3,6 +3,54 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main">Главная</string>
     <string name="favourite">Избранное</string>
+    <string name="modelling_for_games">3D моделирование для видеоигр</string>
     <string name="search">Поиск</string>
     <string name="settings">Настройки</string>
+    <string name="blocking">Блокинг</string>
+
+    <string name="language">Язык</string>
+    <string name="interface_str">Интерфейс</string>
+    <string name="account">Аккаунт</string>
+    <string name="text_size">Размер текста</string>
+
+    <string name="russian">Русский</string>
+    <string name="english">English</string>
+
+    <string name="color_theme">Цветовая схема</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="light_theme">Светлая тема</string>
+    <string name="notification_sound">Уведомления и звук</string>
+    <string name="notification">Уведомления</string>
+    <string name="sound">Звук</string>
+
+    <string-array name="theme_titles">
+        <item>Блокинг</item>
+        <item>Деталищация</item>
+        <item>Технические этапы</item>
+        <item>Текстуры</item>
+        <item>Подача</item>
+    </string-array>
+
+    <string-array name="tech_article_titles">
+        <item>Low-poly</item>
+        <item>Topology</item>
+        <item>Технические</item>
+        <item>UV-развертка</item>
+        <item>High-poly</item>
+        <item>Bake</item>
+    </string-array>
+
+    <string-array name="tech_article_bodies">
+        <item>Nike Enters 10-Year Partnership With Major League Baseball! </item>
+        <item>Indonesia Masters – Saina Nehwal sails into semifinals PV Sindhu, Kidambi Srikanth lose in quarters!</item>
+        <item>College Basketball 2018–19 Player of the Year Power Rankings Everyone is chasing Dukes Zion Williamson!</item>
+        <item>Local bowler lands 132 perfect games, shares his secret for success!</item>
+        <item>Sierra solos to win at womens Cadel Evans Great Ocean Road Race!</item>
+        <item>Tiger Woods Friday live blog: Woods overcomes mid-round hiccup to make the cut at Torrey Pines!</item>
+        <item>The 5km fun run was organised by Ironman England as part of its annual three-day triathlon festival in Bolton, Manchester in a bid to attract more female runners to the event!</item>
+        <item>Soccer insider notes: Liverpool not the only Premier League club eyeing Weston McKennie!</item>
+        <item>Chloe Grimme, a USA Swimming Scholastic All American from Land O Lakes, Florida, announced on social media that she has verbally committed to the University of Florida for 2020–21!</item>
+        <item>Table Tennis Federation Revokes Soumyajit Ghoshs Suspension, 9 Months After Rape Allegations!</item>
+        <item>2019 Australian Open odds, predictions for mens finals!</item>
+    </string-array>
 </resources>
