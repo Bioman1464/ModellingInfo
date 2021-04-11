@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PageTitle" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/muller_extra_bold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="lineHeight">30sp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="ButtonText" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/muller_extra_bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+</resources>
