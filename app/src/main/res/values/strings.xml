@@ -22,6 +22,8 @@
     <string name="notification_sound">Уведомления и звук</string>
     <string name="notification">Уведомления</string>
     <string name="sound">Звук</string>
+    <string name="nickname">Nickname</string>
+    <string name="two_lines">Тут бует 2 строки\nдля проверка</string>
 
     <string-array name="theme_titles">
         <item>Блокинг</item>
