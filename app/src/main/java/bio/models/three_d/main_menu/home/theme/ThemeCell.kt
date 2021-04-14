@@ -33,7 +33,7 @@ object ThemeCell: Cell<RecyclerItem>() {
         if (holder is ThemeViewHolder && item is Theme) {
             holder.bind(item)
             holder.itemView.setOnClickListener {
-                listener?.listen(item)
+                listener?.listen(item, holder.bindingAdapterPosition)
             }
         }
     }

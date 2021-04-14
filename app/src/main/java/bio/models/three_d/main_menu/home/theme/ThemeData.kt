@@ -10,7 +10,7 @@ object ThemeData {
         list.add(
             Theme(
             id = "1",
-            theme = "Theme",
+            theme = "Блокниг",
             imageSrc = R.drawable.item_image
         )
         )
@@ -18,7 +18,7 @@ object ThemeData {
         list.add(
             Theme(
             id = "2",
-            theme = "Theme1",
+            theme = "Детализация",
             imageSrc = R.drawable.item_image
         )
         )
@@ -26,7 +26,7 @@ object ThemeData {
         list.add(
             Theme(
             id = "3",
-            theme = "Theme2",
+            theme = "Технические\nэтапы",
             imageSrc = R.drawable.item_image
         )
         )
@@ -34,7 +34,7 @@ object ThemeData {
         list.add(
             Theme(
             id = "4",
-            theme = "Theme3",
+            theme = "Текстуры",
             imageSrc = R.drawable.item_image
         )
         )
@@ -42,7 +42,7 @@ object ThemeData {
         list.add(
             Theme(
             id = "5",
-            theme = "Theme4",
+            theme = "Подача",
             imageSrc = R.drawable.item_image
         )
         )
