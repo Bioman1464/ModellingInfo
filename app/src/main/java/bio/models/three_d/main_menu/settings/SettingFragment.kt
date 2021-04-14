@@ -5,18 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import bio.models.three_d.R
+import bio.models.three_d.databinding.FragmentSettingBinding
 
-class SettingFragment : Fragment() {
+class SettingFragment : Fragment(R.layout.fragment_setting), SeekBar.OnSeekBarChangeListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var binding: FragmentSettingBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentSettingBinding.bind(view)
+        binding.textSizeSeekbar.setOnSeekBarChangeListener(this)
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        binding.textSizeSeekbarTitle.text = "${progress}%"
     }
+
+    override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+    override fun onStopTrackingTouch(seekBar: SeekBar?) {}
 }
