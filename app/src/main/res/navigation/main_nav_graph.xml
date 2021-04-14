@@ -10,15 +10,6 @@
         android:name="bio.models.three_d.MainMenuNavFragment"
         android:label="fragment_main_menu_nav"
         tools:layout="@layout/fragment_menu_nav" >
-        <action
-            android:id="@+id/action_mainMenuNavFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
     </fragment>
-
-    <fragment
-        android:id="@+id/articleFragment"
-        android:name="bio.models.three_d.main_menu.article.ArticleFragment"
-        android:label="fragment_article"
-        tools:layout="@layout/fragment_article" />
 
 </navigation>
