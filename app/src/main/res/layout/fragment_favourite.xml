@@ -28,6 +28,16 @@
             android:layout_height="wrap_content"
             android:text="@string/favourite"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/article_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="30dp"
+            android:overScrollMode="never"
+            tools:listitem="@layout/theme_item"
+            tools:itemCount="5"/>
+
     </LinearLayout>
 
 </FrameLayout>
