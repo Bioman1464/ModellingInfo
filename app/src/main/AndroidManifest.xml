@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/Theme.ModellingInfo">
-        <activity android:name=".MainMenuActivity">
+        <activity android:name=".MainMenuActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
