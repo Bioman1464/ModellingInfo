@@ -1,19 +1,21 @@
 
 package bio.models.three_d.main_menu.home
 
+import android.graphics.*
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
 import bio.models.three_d.common.AdapterListener
 import bio.models.three_d.databinding.FragmentHomeBinding
+import bio.models.three_d.main_menu.common.MainAdapter
 import bio.models.three_d.main_menu.common.MarginItemDecoration
 import bio.models.three_d.main_menu.home.theme.Theme
-import bio.models.three_d.main_menu.common.MainAdapter
 import bio.models.three_d.main_menu.home.theme.ThemeData
+
 
 class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
 
@@ -40,7 +42,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
         listAdapter.submitList(ThemeData.createList())
     }
 
-    override fun listen(click: AdapterClick?) {
+    override fun listen(click: AdapterClick?, position: Int) {
         if (click is Theme) {
             Log.d("TEST", "Item is clicked: ${click.theme}")
         }
