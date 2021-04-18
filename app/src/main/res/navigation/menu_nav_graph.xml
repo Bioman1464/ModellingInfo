@@ -10,6 +10,14 @@
         android:name="bio.models.three_d.main_menu.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_articleListFragment"
+            app:destination="@id/articleListFragment">
+        </action>
+        <argument
+            android:name="themId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
     <fragment
@@ -43,4 +51,16 @@
         android:name="bio.models.three_d.main_menu.article.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/articleListFragment"
+        android:name="bio.models.three_d.main_menu.article.ArticleListFragment"
+        android:label="ArticleListFragment" >
+        <action
+            android:id="@+id/action_articleListFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+        <argument
+            android:name="themeId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>
