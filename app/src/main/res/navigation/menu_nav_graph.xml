@@ -14,10 +14,6 @@
             android:id="@+id/action_homeFragment_to_articleListFragment"
             app:destination="@id/articleListFragment">
         </action>
-        <argument
-            android:name="themId"
-            app:argType="integer"
-            android:defaultValue="0" />
     </fragment>
 
     <fragment
@@ -50,7 +46,12 @@
         android:id="@+id/articleFragment"
         android:name="bio.models.three_d.main_menu.article.ArticleFragment"
         android:label="fragment_article"
-        tools:layout="@layout/fragment_article" />
+        tools:layout="@layout/fragment_article" >
+        <argument
+            android:name="articleId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/articleListFragment"
         android:name="bio.models.three_d.main_menu.article.ArticleListFragment"
