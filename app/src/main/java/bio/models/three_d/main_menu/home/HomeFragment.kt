@@ -1,16 +1,18 @@
 
 package bio.models.three_d.main_menu.home
 
-import android.graphics.*
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
 import bio.models.three_d.common.AdapterListener
 import bio.models.three_d.databinding.FragmentHomeBinding
+import bio.models.three_d.common.ArticleViewModel
 import bio.models.three_d.main_menu.common.MainAdapter
 import bio.models.three_d.main_menu.common.MarginItemDecoration
 import bio.models.three_d.main_menu.home.theme.Theme
@@ -19,6 +21,7 @@ import bio.models.three_d.main_menu.home.theme.ThemeData
 
 class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
 
+    private val model: ArticleViewModel by activityViewModels()
     private lateinit var binding : FragmentHomeBinding
     private val listAdapter by lazy { MainAdapter(this) }
 
@@ -45,6 +48,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
     override fun listen(click: AdapterClick?, position: Int) {
         if (click is Theme) {
             Log.d("TEST", "Item is clicked: ${click.theme}")
+            val action = HomeFragmentDirections.actionHomeFragmentToArticleListFragment(position)
+            findNavController().navigate(action)
         }
     }
 }
