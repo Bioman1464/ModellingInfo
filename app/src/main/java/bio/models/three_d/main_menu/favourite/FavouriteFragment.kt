@@ -44,18 +44,20 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
     override fun listen(click: AdapterClick?, position: Int) {
         if (click is Article) {
             Log.d("TEST", "Item is clicked: ${click.title}")
-            if (listAdapter.currentList[position] is Article) {
-                Log.d("TEST", "Item is clicked: " +
-                        "${(listAdapter.currentList[position] as Article).isFavourite}")
-                if ((listAdapter.currentList[position] as Article).isFavourite != click.isFavourite) {
-                    (listAdapter.currentList[position] as Article).isFavourite = !(listAdapter.currentList[position] as Article).isFavourite
-                    listAdapter.notifyItemChanged(position)
-                    Log.d("FAVORITE", "$position")
-                    return
-                }
-            }
+            findNavController().navigate(R.id.articleFragment)
+        }
+    }
 
-//            findNavController().navigate(R.id.articleFragment)
+    fun likeArticle(click: Article, position: Int) {
+        if (listAdapter.currentList[position] is Article) {
+            Log.d("TEST", "Item is clicked: " +
+                    "${(listAdapter.currentList[position] as Article).isFavourite}")
+            if ((listAdapter.currentList[position] as Article).isFavourite != click.isFavourite) {
+                (listAdapter.currentList[position] as Article).isFavourite = !(listAdapter.currentList[position] as Article).isFavourite
+                listAdapter.notifyItemChanged(position)
+                Log.d("FAVORITE", "$position")
+                return
+            }
         }
     }
 }
