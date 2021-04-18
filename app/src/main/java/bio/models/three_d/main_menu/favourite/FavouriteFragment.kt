@@ -27,7 +27,6 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
     }
 
     private fun initialize() {
-        Log.d("TEST", "Initialize")
         binding.articleRecycler.apply {
             addItemDecoration(
                 MarginItemDecoration(
@@ -37,14 +36,14 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
-        Log.d("TEST", "Initialized")
         listAdapter.submitList(ArticleData.createList())
     }
 
     override fun listen(click: AdapterClick?, position: Int) {
         if (click is Article) {
-            Log.d("TEST", "Item is clicked: ${click.title}")
-            findNavController().navigate(R.id.articleFragment)
+            val action = FavouriteFragmentDirections
+                .actionFavouriteFragmentToArticleFragment(articleId = position)
+            findNavController().navigate(action)
         }
     }
 

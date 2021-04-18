@@ -3,6 +3,7 @@ package bio.models.three_d.main_menu.article
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -31,7 +32,6 @@ class ArticleListFragment: Fragment(R.layout.fragment_article_list), AdapterList
     }
 
     private fun initialize() {
-        Log.d("TEST", "Initialize")
         setTitle()
         binding.articleRecycler.apply {
             addItemDecoration(
@@ -42,20 +42,25 @@ class ArticleListFragment: Fragment(R.layout.fragment_article_list), AdapterList
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
-        Log.d("TEST", "Initialized")
         listAdapter.submitList(ArticleData.createList())
     }
 
     private fun setTitle() {
         val themeList = resources.getStringArray(R.array.theme_titles)
         val themeId = navArgs.themeId
+        if (themeId == null) {
+            Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
+            return
+        }
         if (themeId < themeList.size) {
             binding.homeTitle.text = themeList[themeId]
         }
     }
 
     override fun listen(click: AdapterClick?, position: Int) {
-        findNavController().navigate(R.id.articleFragment)
+        val action = ArticleListFragmentDirections
+            .actionArticleListFragmentToArticleFragment(articleId = position)
+        findNavController().navigate(action)
     }
 
 }

@@ -3,9 +3,8 @@ package bio.models.three_d.main_menu.search
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
@@ -46,6 +45,9 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
     override fun listen(click: AdapterClick?, position: Int) {
         if (click is Theme) {
             Log.d("TEST", "Item is clicked: ${click.theme}")
+            val action = SearchFragmentDirections
+                .actionSearchFragmentToArticleFragment(articleId = position)
+            findNavController().navigate(action)
         }
     }
 
