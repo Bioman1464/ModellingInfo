@@ -6,16 +6,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import bio.models.three_d.R
-class ArticleFragment : Fragment() {
+import bio.models.three_d.databinding.FragmentArticleBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class ArticleFragment : Fragment(R.layout.fragment_article) {
+
+    private lateinit var navArgs: ArticleFragmentArgs
+    private lateinit var binding: FragmentArticleBinding
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navArgs = ArticleFragmentArgs.fromBundle(requireArguments())
+        binding = FragmentArticleBinding.bind(view)
+        setTitle()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_article, container, false)
+    private fun setTitle() {
+        val articleId = navArgs.articleId
+        articleId.let {
+            binding.articleTitle.text = it.toString()
+            getArticleById(it)
+        }
+    }
+
+    private fun getArticleById(id: Int) {
+
     }
 }
