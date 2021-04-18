@@ -3,14 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_back"
     tools:context=".main_menu.article.ArticleFragment">
 
-    <TextView
-        android:gravity="center"
+    <ImageView
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="50sp"
-        android:textColor="#FF00AA"
-        android:text="FRAGMENT ARTICLE" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_shadow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="30dp">
+
+            <TextView
+                android:id="@+id/article_title"
+                style="@style/PageTitle"
+                android:textColor="@color/white"
+                android:text="Title"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/add_to_favourite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_star_blue_outline"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
