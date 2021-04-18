@@ -38,9 +38,9 @@ object ArticleCell: Cell<RecyclerItem>() {
                 val changedItem = item
                 changedItem.isFavourite  = !item.isFavourite
                 if (changedItem.isFavourite) {
-                    holder.view.favourite.setImageResource(R.drawable.ic_star_white_filled)
+                    holder.view.favourite.setImageResource(R.drawable.ic_star_blue)
                 } else {
-                    holder.view.favourite.setImageResource(R.drawable.ic_star_white)
+                    holder.view.favourite.setImageResource(R.drawable.ic_star_blue_outline)
                 }
                 listener?.listen(changedItem, holder.bindingAdapterPosition)
             }
