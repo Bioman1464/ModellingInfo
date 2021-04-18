@@ -9,24 +9,27 @@
     <TextView
         android:id="@+id/theme_title"
         style="@style/ButtonText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:minHeight="75dp"
+        android:minHeight="60dp"
         android:gravity="center_vertical"
         android:textColor="@color/white"
+        android:text="dasadsdjoasi ijdoi\ndasdasdasda"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/theme_image"/>
 
     <ImageView
         android:id="@+id/theme_image"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/item_image"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/theme_title"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
