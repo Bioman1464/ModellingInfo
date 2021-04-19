@@ -28,9 +28,24 @@
     <string-array name="theme_titles">
         <item>Блокинг</item>
         <item>Детализация</item>
-        <item>Технические этапы</item>
+        <item>Технические\nэтапы</item>
         <item>Текстуры</item>
         <item>Подача</item>
+    </string-array>
+    
+    <string-array name="blocking_article_titles">
+        <item>Общая информация</item>
+        <item>Примитивы и крупные формы</item>
+        <item>Силует</item>
+        <item>Покраска драфта цветом</item>
+        <item>Частые ошибки</item>
+    </string-array>
+    
+    <string-array name="detaling_article_title">
+        <item>Средние формы</item>
+        <item>Как оживить модель</item>
+        <item>\"Анатомия\" модели</item>
+        <item>Поврежения</item>
     </string-array>
 
     <string-array name="tech_article_titles">
@@ -40,6 +55,20 @@
         <item>UV-развертка</item>
         <item>High-poly</item>
         <item>Bake</item>
+    </string-array>
+
+    <string-array name="textures_article_titles">
+        <item>Создание материала</item>
+        <item>PBR</item>
+    </string-array>
+    
+    <string-array name="supply_article_titles">
+        <item>Правила композиции</item>
+        <item>Горизонт</item>
+        <item>Направленность</item>
+        <item>Акценты и ритмы</item>
+        <item>Свет и тень</item>
+        <item>Формы</item>
     </string-array>
 
     <string-array name="tech_article_bodies">
