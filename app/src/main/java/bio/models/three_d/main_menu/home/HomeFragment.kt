@@ -11,13 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
 import bio.models.three_d.common.AdapterListener
-import bio.models.three_d.databinding.FragmentHomeBinding
 import bio.models.three_d.common.ArticleViewModel
+import bio.models.three_d.databinding.FragmentHomeBinding
 import bio.models.three_d.main_menu.common.MainAdapter
-import bio.models.three_d.main_menu.common.MarginItemDecoration
 import bio.models.three_d.main_menu.home.theme.Theme
 import bio.models.three_d.main_menu.home.theme.ThemeData
-
 
 class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
 
@@ -33,11 +31,12 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
 
     private fun initialize() {
         binding.themeRecycler.apply {
-            addItemDecoration(MarginItemDecoration(
+            /*addItemDecoration(
+                MarginItemDecoration(
                 resources
                     .getDimension(R.dimen.recycler_item_spacing)
                     .toInt()
-            ))
+            ))*/
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }

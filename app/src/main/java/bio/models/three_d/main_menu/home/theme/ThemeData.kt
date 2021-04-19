@@ -10,7 +10,7 @@ object ThemeData {
         list.add(
             Theme(
             id = "1",
-            theme = "Блокниг",
+            theme = "Блокинг",
             imageSrc = R.drawable.item_image
         )
         )
