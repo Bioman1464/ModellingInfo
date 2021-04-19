@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
 import bio.models.three_d.common.AdapterListener
+import bio.models.three_d.common.RecyclerItem
+import bio.models.three_d.common.SharedPrefs
 import bio.models.three_d.databinding.FragmentFavouriteBinding
 import bio.models.three_d.main_menu.common.MainAdapter
 import bio.models.three_d.main_menu.common.MarginItemDecoration
@@ -36,14 +38,26 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
-        listAdapter.submitList(ArticleData.createList())
+        listAdapter.submitList(getFavouriteArticles())
+    }
+
+    private fun getFavouriteArticles(): MutableList<RecyclerItem> {
+        val sharedPrefs = SharedPrefs.getInstance(requireContext())
+        val favouriteArticleIds = sharedPrefs.retrieveFavouriteArticleList()
+        val favouriteArticles = mutableListOf<RecyclerItem>()
+        for (item in favouriteArticleIds) {
+            favouriteArticles.add(ArticleData.itemByArticleId(requireContext(), item.id))
+        }
+        return favouriteArticles
     }
 
     override fun listen(click: AdapterClick?, position: Int) {
         if (click is Article) {
-            val action = FavouriteFragmentDirections
-                .actionFavouriteFragmentToArticleFragment(articleId = position)
-            findNavController().navigate(action)
+            listAdapter.currentList[position].id?.toInt()?.let {
+                val action = FavouriteFragmentDirections
+                    .actionFavouriteFragmentToArticleFragment(articleId = it)
+                findNavController().navigate(action)
+            }
         }
     }
 

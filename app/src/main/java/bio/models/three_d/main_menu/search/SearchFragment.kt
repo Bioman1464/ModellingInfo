@@ -37,7 +37,7 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
             adapter = listAdapter
         }
 
-        listAdapter.submitList(ThemeData.createList())
+//        listAdapter.submitList(ThemeData.createList(requireContext()))
     }
 
     override fun listen(click: AdapterClick?, position: Int) {

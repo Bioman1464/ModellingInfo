@@ -41,7 +41,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
             adapter = listAdapter
         }
 
-        listAdapter.submitList(ThemeData.createList())
+        listAdapter.submitList(ThemeData.createList(requireContext()))
     }
 
     override fun listen(click: AdapterClick?, position: Int) {
