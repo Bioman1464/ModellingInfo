@@ -1,0 +1,369 @@
+<html lang="ru_RU">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="main.js"></script>
+    <style>
+			h1 {color: #D2D462;}
+			div {color: #D2D462;}
+			form {text-decoration-color: #FF6361}
+	    </style>
+</head>
+<body>
+<h1>Страничка на заказ</h1>
+<img src="testgif.gif"/>
+<table>
+    <tr>
+        <td><div>Загловок</div></td>
+        <td><input type="text" id="title"></td>
+    </tr>
+    <tr valign="top">
+        <td><div>Картинка</div></td>
+        <td>
+            <form>
+                <div><input type="checkbox" id="picture1" name="picture"
+                            value="oduvan.jpg">Огурчик</div>
+                <div><input type="checkbox" id="picture2" name="picture"
+                            value="bird.jpg">Синичка</div>
+                <div><input type="checkbox" id="picture3" name="picture"
+                            value="pickle.jpg">Одуванчик</div>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td><div>Подпись</div></td>
+        <td><input type="text" id="description"></td>
+    </tr>
+    <tr valign="top">
+        <td>
+            <div>Цвет фона</div>
+            <form>
+                <select id="bColorSelector">
+                    <option>Синий</option>
+                    <option>Красный</option>
+                    <option>Оранжевый</option>
+                </select>
+            </form>
+        </td>
+        <td>
+            <div>
+                <div>Цвет текста</div>
+                <form id="tColorForm">
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #000000;"></div>
+                        </td>
+                        <td>
+                            <input checked="true" type="radio" name="tColor" id="tColor1">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #0000FF;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor2">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #FFA500;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor3">
+                        </td>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="Сброс" onclick="reset()"></td>
+        <td><input type="button" value="Показать" onclick="show()"></td>
+    </tr>
+</table>
+<h1>Страничка на заказ</h1>
+<table>
+    <tr>
+        <td><div>Загловок</div></td>
+        <td><input type="text" id="title"></td>
+    </tr>
+    <tr valign="top">
+        <td><div>Картинка</div></td>
+        <td>
+            <form>
+                <div><input type="checkbox" id="picture1" name="picture"
+                            value="oduvan.jpg">Огурчик</div>
+                <div><input type="checkbox" id="picture2" name="picture"
+                            value="bird.jpg">Синичка</div>
+                <div><input type="checkbox" id="picture3" name="picture"
+                            value="pickle.jpg">Одуванчик</div>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td><div>Подпись</div></td>
+        <td><input type="text" id="description"></td>
+    </tr>
+    <tr valign="top">
+        <td>
+            <div>Цвет фона</div>
+            <form>
+                <select id="bColorSelector">
+                    <option>Синий</option>
+                    <option>Красный</option>
+                    <option>Оранжевый</option>
+                </select>
+            </form>
+        </td>
+        <td>
+            <div>
+                <div>Цвет текста</div>
+                <form id="tColorForm">
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #000000;"></div>
+                        </td>
+                        <td>
+                            <input checked="true" type="radio" name="tColor" id="tColor1">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #0000FF;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor2">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #FFA500;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor3">
+                        </td>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="Сброс" onclick="reset()"></td>
+        <td><input type="button" value="Показать" onclick="show()"></td>
+    </tr>
+</table>
+<h1>Страничка на заказ</h1>
+<table>
+    <tr>
+        <td><div>Загловок</div></td>
+        <td><input type="text" id="title"></td>
+    </tr>
+    <tr valign="top">
+        <td><div>Картинка</div></td>
+        <td>
+            <form>
+                <div><input type="checkbox" id="picture1" name="picture"
+                            value="oduvan.jpg">Огурчик</div>
+                <div><input type="checkbox" id="picture2" name="picture"
+                            value="bird.jpg">Синичка</div>
+                <div><input type="checkbox" id="picture3" name="picture"
+                            value="pickle.jpg">Одуванчик</div>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td><div>Подпись</div></td>
+        <td><input type="text" id="description"></td>
+    </tr>
+    <tr valign="top">
+        <td>
+            <div>Цвет фона</div>
+            <form>
+                <select id="bColorSelector">
+                    <option>Синий</option>
+                    <option>Красный</option>
+                    <option>Оранжевый</option>
+                </select>
+            </form>
+        </td>
+        <td>
+            <div>
+                <div>Цвет текста</div>
+                <form id="tColorForm">
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #000000;"></div>
+                        </td>
+                        <td>
+                            <input checked="true" type="radio" name="tColor" id="tColor1">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #0000FF;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor2">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #FFA500;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor3">
+                        </td>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="Сброс" onclick="reset()"></td>
+        <td><input type="button" value="Показать" onclick="show()"></td>
+    </tr>
+</table>
+<h1>Страничка на заказ</h1>
+<table>
+    <tr>
+        <td><div>Загловок</div></td>
+        <td><input type="text" id="title"></td>
+    </tr>
+    <tr valign="top">
+        <td><div>Картинка</div></td>
+        <td>
+            <form>
+                <div><input type="checkbox" id="picture1" name="picture"
+                            value="oduvan.jpg">Огурчик</div>
+                <div><input type="checkbox" id="picture2" name="picture"
+                            value="bird.jpg">Синичка</div>
+                <div><input type="checkbox" id="picture3" name="picture"
+                            value="pickle.jpg">Одуванчик</div>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td><div>Подпись</div></td>
+        <td><input type="text" id="description"></td>
+    </tr>
+    <tr valign="top">
+        <td>
+            <div>Цвет фона</div>
+            <form>
+                <select id="bColorSelector">
+                    <option>Синий</option>
+                    <option>Красный</option>
+                    <option>Оранжевый</option>
+                </select>
+            </form>
+        </td>
+        <td>
+            <div>
+                <div>Цвет текста</div>
+                <form id="tColorForm">
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #000000;"></div>
+                        </td>
+                        <td>
+                            <input checked="true" type="radio" name="tColor" id="tColor1">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #0000FF;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor2">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #FFA500;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor3">
+                        </td>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="Сброс" onclick="reset()"></td>
+        <td><input type="button" value="Показать" onclick="show()"></td>
+    </tr>
+</table>
+<h1>Страничка на заказ</h1>
+<table>
+    <tr>
+        <td><div>Загловок</div></td>
+        <td><input type="text" id="title"></td>
+    </tr>
+    <tr valign="top">
+        <td><div>Картинка</div></td>
+        <td>
+            <form>
+                <div><input type="checkbox" id="picture1" name="picture"
+                            value="oduvan.jpg">Огурчик</div>
+                <div><input type="checkbox" id="picture2" name="picture"
+                            value="bird.jpg">Синичка</div>
+                <div><input type="checkbox" id="picture3" name="picture"
+                            value="pickle.jpg">Одуванчик</div>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td><div>Подпись</div></td>
+        <td><input type="text" id="description"></td>
+    </tr>
+    <tr valign="top">
+        <td>
+            <div>Цвет фона</div>
+            <form>
+                <select id="bColorSelector">
+                    <option>Синий</option>
+                    <option>Красный</option>
+                    <option>Оранжевый</option>
+                </select>
+            </form>
+        </td>
+        <td>
+            <div>
+                <div>Цвет текста</div>
+                <form id="tColorForm">
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #000000;"></div>
+                        </td>
+                        <td>
+                            <input checked="true" type="radio" name="tColor" id="tColor1">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #0000FF;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor2">
+                        </td>
+                    </table>
+                    <table valign="center">
+                        <td>
+                            <div style="height: 25px; width: 50px;background-color: #FFA500;"></div>
+                        </td>
+                        <td>
+                            <input type="radio" name="tColor" id="tColor3">
+                        </td>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="Сброс" onclick="reset()"></td>
+        <td><input type="button" value="Показать" onclick="show()"></td>
+    </tr>
+</table>
+</body>
+</html>
