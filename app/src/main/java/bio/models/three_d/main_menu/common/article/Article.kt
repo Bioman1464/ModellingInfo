@@ -5,6 +5,7 @@ import bio.models.three_d.common.RecyclerItem
 
 data class Article (
     override val id: String?,
+    val themeId: Int,
     val title: String,
     var isFavourite: Boolean = false,
     val imageSrc: Int,
