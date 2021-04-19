@@ -11,13 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_shadow"/>
+        android:src="@drawable/bg_night"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="50dp">
 
         <EditText
@@ -27,7 +26,8 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="5dp"
             android:backgroundTint="@color/primary"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="30dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/search_recycler"
@@ -36,7 +36,8 @@
             android:layout_marginTop="30dp"
             android:overScrollMode="never"
             tools:listitem="@layout/theme_item"
-            tools:itemCount="5"/>
+            tools:itemCount="5"
+            android:layout_marginHorizontal="20dp"/>
 
     </LinearLayout>
 
