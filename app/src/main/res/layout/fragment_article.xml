@@ -16,20 +16,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="30dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="50dp">
+            android:paddingHorizontal="30dp"
+            android:paddingTop="50dp">
 
             <TextView
                 android:id="@+id/article_title"
                 style="@style/PageTitle"
                 android:textColor="@color/white"
-                android:text="Title"
+                tools:text="Title"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
@@ -47,6 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="34dp"
+            android:layout_marginHorizontal="30dp"
+            android:overScrollMode="never"
             android:scrollbarThumbVertical="@drawable/custom_scrollbar_thumb"
             />
     </LinearLayout>
