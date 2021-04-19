@@ -34,11 +34,11 @@ class ArticleListFragment: Fragment(R.layout.fragment_article_list), AdapterList
     private fun initialize() {
         setTitle()
         binding.articleRecycler.apply {
-            addItemDecoration(
+            /*addItemDecoration(
                 MarginItemDecoration(
                     resources.getDimension(R.dimen.recycler_item_spacing).toInt()
                 )
-            )
+            )*/
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
