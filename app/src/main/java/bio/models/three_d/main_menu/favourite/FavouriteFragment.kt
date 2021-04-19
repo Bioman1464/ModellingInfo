@@ -28,11 +28,11 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
 
     private fun initialize() {
         binding.articleRecycler.apply {
-            addItemDecoration(
+            /*addItemDecoration(
                 MarginItemDecoration(
                     resources
                         .getDimension(R.dimen.recycler_item_spacing).toInt()
-                ))
+                ))*/
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
