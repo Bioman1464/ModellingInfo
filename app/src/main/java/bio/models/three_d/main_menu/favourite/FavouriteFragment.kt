@@ -46,7 +46,7 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
         val favouriteArticleIds = sharedPrefs.retrieveFavouriteArticleList()
         val favouriteArticles = mutableListOf<RecyclerItem>()
         for (item in favouriteArticleIds) {
-            favouriteArticles.add(ArticleData.itemByArticleId(requireContext(), item.id))
+            favouriteArticles.add(ArticleData.getById(requireContext(), item.id))
         }
         return favouriteArticles
     }
