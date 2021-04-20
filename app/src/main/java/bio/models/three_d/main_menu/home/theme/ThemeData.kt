@@ -2,16 +2,29 @@ package bio.models.three_d.main_menu.home.theme
 
 import android.content.Context
 import bio.models.three_d.R
-import bio.models.three_d.common.RecyclerItem
 
 object ThemeData {
 
-    fun getTitleById(context:Context, id: Int): String {
-        val stringList = context.resources.getStringArray(R.array.theme_titles)
-        return stringList[id%stringList.size]
+    private var items: List<Theme>? = null
+
+    fun getList(context: Context): List<Theme> {
+        if (items.isNullOrEmpty()) {
+            items = createList(context)
+        }
+        return items as List<Theme>
     }
 
-    fun createList(context: Context): List<RecyclerItem> {
+    fun getTitleById(context:Context, id: Int): String? {
+        getList(context)
+        return items?.get(id)?.theme
+    }
+
+    fun getById(context: Context, id: Int) : Theme? {
+        getList(context)
+        return items?.get(id)
+    }
+
+    fun createList(context: Context): List<Theme> {
         val stringList = context.resources.getStringArray(R.array.theme_titles)
         val picList = listOf(
             R.drawable.ic_cubes,
@@ -20,7 +33,7 @@ object ThemeData {
             R.drawable.ic_brush,
             R.drawable.ic_section
         )
-        val list = ArrayList<RecyclerItem>()
+        val list = ArrayList<Theme>()
         for(item in stringList.indices) {
             list.add(
                 Theme(
