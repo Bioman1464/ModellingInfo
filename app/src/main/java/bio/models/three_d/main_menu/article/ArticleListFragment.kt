@@ -42,7 +42,7 @@ class ArticleListFragment: Fragment(R.layout.fragment_article_list), AdapterList
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
-        listAdapter.submitList(ArticleData.getArticlesByThemeId(requireContext(), navArgs.themeId))
+        listAdapter.submitList(ArticleData.getByThemeId(requireContext(), navArgs.themeId))
     }
 
     private fun setTitle() {
@@ -58,9 +58,13 @@ class ArticleListFragment: Fragment(R.layout.fragment_article_list), AdapterList
     }
 
     override fun listen(click: AdapterClick?, position: Int) {
-        val action = ArticleListFragmentDirections
-            .actionArticleListFragmentToArticleFragment(articleId = position)
-        findNavController().navigate(action)
+        val action = listAdapter.currentList[position].id?.toInt()?.let {
+            ArticleListFragmentDirections
+                .actionArticleListFragmentToArticleFragment(articleId = it)
+        }
+        if (action != null) {
+            findNavController().navigate(action)
+        }
     }
 
 }
