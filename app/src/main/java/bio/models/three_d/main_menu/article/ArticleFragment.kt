@@ -10,6 +10,8 @@ import bio.models.three_d.R
 import bio.models.three_d.common.Article
 import bio.models.three_d.common.SharedPrefs
 import bio.models.three_d.databinding.FragmentArticleBinding
+import bio.models.three_d.main_menu.common.article.ArticleData
+import bio.models.three_d.main_menu.home.theme.ThemeData
 
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
@@ -36,9 +38,13 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     private fun setTitle() {
         val articleId = navArgs.articleId
         article = Article(articleId, 0)
-        val themeList = resources.getStringArray(R.array.tech_article_titles)
         articleId.let {
-            binding.articleTitle.text = themeList[it%6]
+            val article = ArticleData.getById(requireContext(), it)
+            val theme = ThemeData.getById(requireContext(), article.themeId)
+
+            binding.articleTitle.text = article.title
+            binding.themeTitle.text = theme?.theme
+
             checkIfFavourite()
             getArticleById()
         }

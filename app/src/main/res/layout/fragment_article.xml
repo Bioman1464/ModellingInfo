@@ -26,7 +26,7 @@
             android:paddingTop="50dp">
 
             <TextView
-                android:id="@+id/article_title"
+                android:id="@+id/theme_title"
                 style="@style/PageTitle"
                 android:textColor="@color/white"
                 tools:text="Title"
@@ -41,6 +41,14 @@
                 android:src="@drawable/ic_star_blue_outline"/>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/article_title"
+            style="@style/PageTitle"
+            android:textColor="@color/white"
+            tools:text="Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <WebView
             android:id="@+id/article_web_view"
