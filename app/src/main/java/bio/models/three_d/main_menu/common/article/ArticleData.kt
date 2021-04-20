@@ -6,100 +6,77 @@ import bio.models.three_d.common.RecyclerItem
 
 object ArticleData {
 
-    fun getTitle(index: Int): String {
-        return when(index) {
-            in 0..5 -> "Low-poly"
-            in 5..10 -> "Topology"
-            in 10..15 -> "Uv-развертка"
-            in 15..20 -> "High-poly"
-            in 20..25 -> "Bake"
-            else -> "Low-poly"
+    private var items: List<Article>? = null
+
+    fun getList(context: Context): List<Article> {
+        if (items.isNullOrEmpty()) {
+            items = getAll(context)
         }
+        return items as List<Article>
     }
 
-    fun getThemeId(index: Int): Int {
-        return when(index) {
-            in 0..5 -> 0
-            in 5..10 -> 1
-            in 10..15 -> 2
-            in 15..20 -> 3
-            in 20..25 -> 4
-            else -> 1
-        }
-    }
-
-    fun getArticlesByThemeId(context: Context, themeId: Int): List<RecyclerItem> {
-        val articleList = arrayListOf<RecyclerItem>()
-        var startId = 0
-        var endId = 0
-        val articleTitles: Array<String> = when (themeId) {
-            0 -> {
-                startId = 0
-                endId = 4
-                context.resources.getStringArray(R.array.blocking_article_titles)
-            }
-            1 -> {
-                startId = 5
-                endId = 8
-                context.resources.getStringArray(R.array.detaling_article_title)
-            }
-            2 -> {
-                startId = 9
-                endId = 13
-                context.resources.getStringArray(R.array.tech_article_titles)
-            }
-            3 -> {
-                startId = 14
-                endId = 15
-                context.resources.getStringArray(R.array.textures_article_titles)
-            }
-            4 -> {
-                startId = 16
-                endId = 21
-                context.resources.getStringArray(R.array.supply_article_titles)
-            }
-            else -> arrayOf()
-        }
-
-        for (id in startId..endId) {
-            articleList.add(
-                Article(
-                    id = "$id",
-                    themeId = themeId,
-                    title = articleTitles[id - startId],
-                    imageSrc = R.drawable.item_image
+    fun getAll(context: Context): List<Article> {
+        val articleList = arrayListOf<Article>()
+        for (themeId in 0..4) {
+            val startId = getStartIdOfArticles(themeId)
+            val endId = getEndIdOfArticles(themeId)
+            val articleTitles = getArticleStringList(context, themeId)
+            for (id in startId..endId) {
+                articleList.add(
+                    Article(
+                        id = "$id",
+                        themeId = themeId,
+                        title = articleTitles[id - startId],
+                        imageSrc = R.drawable.item_image,
+                        desc = "Description"
+                    )
                 )
-            )
+            }
         }
         return articleList
     }
 
-    fun itemByArticleId (context: Context, articleId: Int): RecyclerItem {
-        val themeId = themeIdByArticleId(articleId)
-        val articleTitles: Array<String> = when (themeId) {
-            0 -> {
-                context.resources.getStringArray(R.array.blocking_article_titles)
-            }
-            1 -> {
-                context.resources.getStringArray(R.array.detaling_article_title)
-            }
-            2 -> {
-                context.resources.getStringArray(R.array.tech_article_titles)
-            }
-            3 -> {
-                context.resources.getStringArray(R.array.textures_article_titles)
-            }
-            4 -> {
-                context.resources.getStringArray(R.array.supply_article_titles)
-            }
-            else -> arrayOf()
+    fun getByThemeId(context: Context, themeId: Int): List<Article> {
+        val unfilteredItems = getList(context)
+        return unfilteredItems.filter {
+            it.themeId == themeId
         }
-        return Article(
-            id = "$articleId",
-            themeId = getThemeId(articleId),
-            title = articleTitles[orderIdByArticleId(articleId)],
-            imageSrc = R.drawable.item_image
-        )
+    }
+
+    fun getById(context: Context, id: Int): Article {
+        return getList(context).first { it.id == id.toString() }
+    }
+
+    private fun getStartIdOfArticles (themeId: Int): Int {
+        return when (themeId) {
+            0 -> 0
+            1 -> 5
+            2 -> 9
+            3 -> 14
+            4 -> 16
+            else -> 0
+        }
+    }
+
+    private fun getEndIdOfArticles (themeId: Int): Int {
+        return when (themeId) {
+            0 -> 4
+            1 -> 8
+            2 -> 13
+            3 -> 15
+            4 -> 21
+            else -> 4
+        }
+    }
+
+    private fun getArticleStringList (context: Context, themeId: Int): Array<String> {
+        return when (themeId) {
+            1 -> context.resources.getStringArray(R.array.detaling_article_title)
+            2 -> context.resources.getStringArray(R.array.tech_article_titles)
+            3 -> context.resources.getStringArray(R.array.textures_article_titles)
+            4 -> context.resources.getStringArray(R.array.supply_article_titles)
+            else -> context.resources.getStringArray(R.array.blocking_article_titles)
+        }
     }
 
     fun themeIdByArticleId(id: Int): Int {
@@ -122,29 +99,5 @@ object ArticleData {
             in 16..21 -> id - 16
             else -> 0
         }
-    }
-
-    fun getArticleById(id: Int): RecyclerItem {
-        return Article(
-            id = "$id",
-            themeId = getThemeId(id),
-            title = "${getTitle(id)}${id}",
-            imageSrc = R.drawable.item_image
-        )
-    }
-
-    fun createList(): List<RecyclerItem> {
-        val list = ArrayList<RecyclerItem>()
-        for (i in 0..25) {
-            list.add(
-                Article(
-                    id = "$i",
-                    themeId = getThemeId(i),
-                    title = "${getTitle(i)}${i}",
-                    imageSrc = R.drawable.item_image
-                )
-            )
-        }
-        return list
     }
 }
