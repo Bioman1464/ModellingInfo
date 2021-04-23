@@ -50,4 +50,9 @@
         <item name="lineHeight">14sp</item>
     </style>
 
+    <style name="SmallMediumText" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/muller_medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

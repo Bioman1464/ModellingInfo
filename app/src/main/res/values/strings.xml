@@ -24,6 +24,13 @@
     <string name="sound">Звук</string>
     <string name="nickname">Nickname</string>
     <string name="two_lines">Тут бует 2 строки\nдля проверка</string>
+    <string name="tiny">Мелкий</string>
+    <string name="medium">Средний</string>
+    <string name="big">Большой</string>
+    <string name="no_favourite_items_yet">В избранном пока ничего нет</string>
+    <string name="to_main_page">На главную</string>
+    <string name="enter_at_least_two_symbols">Введите хотя бы 2 символа…</string>
+    <string name="nothing_was_found">Ничего не нашлось</string>
 
     <string-array name="theme_titles">
         <item>Блокинг</item>
