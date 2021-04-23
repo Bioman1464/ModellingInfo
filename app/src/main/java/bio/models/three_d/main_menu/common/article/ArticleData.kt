@@ -16,6 +16,7 @@ object ArticleData {
     }
 
     fun getAll(context: Context): List<Article> {
+        val descrStringArray = context.resources.getStringArray(R.array.tech_article_bodies)
         val articleList = arrayListOf<Article>()
         for (themeId in 0..4) {
             val startId = getStartIdOfArticles(themeId)
@@ -28,7 +29,7 @@ object ArticleData {
                         themeId = themeId,
                         title = articleTitles[id - startId],
                         imageSrc = R.drawable.item_image,
-                        desc = "Description"
+                        desc = descrStringArray[themeId]
                     )
                 )
             }
