@@ -29,15 +29,21 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
     }
 
     private fun initialize() {
+        binding.noFavouriteLayout.navigateHomeButton.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment)
+        }
+
         binding.articleRecycler.apply {
-            /*addItemDecoration(
-                MarginItemDecoration(
-                    resources
-                        .getDimension(R.dimen.recycler_item_spacing).toInt()
-                ))*/
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
+
+        val favouriteArticlesList = getFavouriteArticles()
+        if (favouriteArticlesList.isEmpty()) {
+            binding.noFavouriteLayout.root.visibility = View.VISIBLE
+            return
+        }
+        binding.articleRecycler.visibility = View.VISIBLE
         listAdapter.submitList(getFavouriteArticles())
     }
 
@@ -61,6 +67,9 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
         }
     }
 
+    /**
+     * Deprecated
+     */
     fun likeArticle(click: Article, position: Int) {
         if (listAdapter.currentList[position] is Article) {
             Log.d("TEST", "Item is clicked: " +
