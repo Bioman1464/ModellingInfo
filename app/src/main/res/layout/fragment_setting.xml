@@ -21,15 +21,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="30dp"
-            android:paddingTop="50dp"
             android:paddingBottom="47dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="11dp">
 
                 <ImageView
                     android:id="@+id/user_image"
@@ -42,7 +42,7 @@
                 <TextView
                     android:id="@+id/user_nickname"
                     style="@style/NicknameText"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="@string/nickname"
@@ -50,10 +50,16 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/secondary"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="11dp"
+                android:paddingHorizontal="30dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -61,56 +67,15 @@
                     style="@style/SettingsTextTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/account"
+                    android:gravity="center"
+                    android:text="@string/interface_str"
                     android:textColor="@color/white" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="11dp"
-                    android:orientation="horizontal">
-
-                    <ImageButton
-                        android:id="@+id/google_button"
-                        android:layout_width="@dimen/settings_sites_size"
-                        android:layout_height="@dimen/settings_sites_size"
-                        android:scaleType="fitCenter"
-                        android:background="@drawable/circle_image_bg"
-                        android:src="@drawable/ic_google" />
-
-                    <ImageButton
-                        android:id="@+id/vk_button"
-                        android:layout_width="@dimen/settings_sites_size"
-                        android:layout_height="@dimen/settings_sites_size"
-                        android:layout_marginStart="15dp"
-                        android:scaleType="fitCenter"
-                        android:background="@drawable/circle_image_bg"
-                        android:src="@drawable/ic_vk" />
-
-                    <ImageButton
-                        android:id="@+id/facebook_button"
-                        android:layout_width="@dimen/settings_sites_size"
-                        android:layout_height="@dimen/settings_sites_size"
-                        android:layout_marginStart="15dp"
-                        android:scaleType="fitCenter"
-                        android:background="@drawable/circle_image_bg"
-                        android:src="@drawable/ic_facebook" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/interface_title"
-                        style="@style/SettingsTextTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/interface_str"
-                        android:textColor="@color/white" />
 
                     <TextView
                         android:id="@+id/text_size_subtitle"
@@ -128,24 +93,48 @@
                         android:gravity="center"
                         android:orientation="horizontal">
 
-                        <SeekBar
-                            android:id="@+id/text_size_seekbar"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:max="100"
-                            android:progressBackgroundTint="@color/white"
-                            android:progressTint="@color/secondary" />
+                        <RadioGroup
+                            android:id="@+id/text_size_radio_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/text_size_seekbar_title"
-                            style="@style/RadioButtonText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0%"
-                            android:minEms="3"
-                            android:textColor="@color/white"
-                            android:gravity="end"/>
+                            <RadioButton
+                                android:id="@+id/radio_size_small"
+                                style="@style/RadioButtonText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:checked="false"
+                                android:layoutDirection="rtl"
+                                android:minHeight="10dp"
+                                android:text="@string/tiny"
+                                android:textColor="@color/white" />
+
+                            <RadioButton
+                                android:id="@+id/radio_size_medium"
+                                style="@style/RadioButtonText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:checked="true"
+                                android:layoutDirection="rtl"
+                                android:minHeight="10dp"
+                                android:text="@string/medium"
+                                android:textColor="@color/white" />
+
+                            <RadioButton
+                                android:id="@+id/radio_size_big"
+                                style="@style/RadioButtonText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:checked="false"
+                                android:layoutDirection="rtl"
+                                android:minHeight="10dp"
+                                android:text="@string/big"
+                                android:textColor="@color/white" />
+
+                        </RadioGroup>
 
                     </LinearLayout>
 
