@@ -19,7 +19,7 @@ import bio.models.three_d.main_menu.search.search_recycler.SearchArticleData
 
 class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
 
-    private lateinit var binding : FragmentSearchBinding
+    private lateinit var binding: FragmentSearchBinding
     private val listAdapter by lazy { MainAdapter(this) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,6 +29,9 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
     }
 
     private fun initialize() {
+        binding.infoLayout.searchInfoTitle.text =
+            requireContext().resources.getText(R.string.enter_at_least_two_symbols)
+        binding.infoLayout.root.visibility = View.VISIBLE
         binding.searchRecycler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
@@ -38,17 +41,36 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 listAdapter.submitList(null)
+                binding.searchRecycler.visibility = View.GONE
+                binding.infoLayout.root.visibility = View.GONE
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (s.toString().isBlank()) {
+                if (s.toString().length < 2) {
+                    binding.searchRecycler.visibility = View.GONE
+                    binding.infoLayout.searchInfoTitle.text =
+                        requireContext().resources.getText(R.string.enter_at_least_two_symbols)
+                    binding.infoLayout.root.visibility = View.VISIBLE
                     return
                 }
-                listAdapter.submitList(
-                    SearchArticleData.filterArticleItems(
-                        s.toString(), ArticleData.getList(requireContext())
-                    )
-                )
+                val articleList = ArticleData.getList(requireContext())
+                val filteredArticleList = SearchArticleData
+                    .filterArticleItems(s.toString(), articleList)
+                Log.d("Error", "${articleList.size}")
+                try {
+                    if (filteredArticleList.isNullOrEmpty()) {
+                        binding.searchRecycler.visibility = View.GONE
+                        binding.infoLayout.searchInfoTitle.text =
+                            requireContext().resources.getText(R.string.nothing_was_found)
+                        binding.infoLayout.root.visibility = View.VISIBLE
+                        return
+                    }
+                } catch (e: Throwable) {
+                    Log.d("Error", "${e.message}")
+                }
+                listAdapter.submitList(filteredArticleList)
+                binding.searchRecycler.visibility = View.VISIBLE
+                binding.infoLayout.root.visibility = View.GONE
             }
         })
     }

@@ -49,16 +49,27 @@
             android:layout_height="0.3dp"
             android:background="@color/secondary"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/search_recycler"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="49dp"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            tools:listitem="@layout/article_item"
-            tools:itemCount="5"
-            android:layout_marginHorizontal="20dp"/>
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/search_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="49dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                tools:listitem="@layout/article_item"
+                tools:itemCount="5"
+                android:layout_marginHorizontal="20dp"/>
+
+            <include
+                android:id="@+id/info_layout"
+                layout="@layout/search_info_view"/>
+
+        </FrameLayout>
 
     </LinearLayout>
 
