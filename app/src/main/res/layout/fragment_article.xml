@@ -21,34 +21,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:paddingHorizontal="30dp"
-            android:paddingTop="50dp">
+            android:paddingTop="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/theme_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/PageTitle"
+                    android:textColor="@color/white"
+                    tools:text="Article title"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/add_to_favourite"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_star_blue_outline"/>
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/theme_title"
-                style="@style/PageTitle"
+                android:id="@+id/article_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
                 android:textColor="@color/white"
-                tools:text="Title"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                android:id="@+id/add_to_favourite"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_star_blue_outline"/>
+                tools:text="Theme title"
+                android:layout_marginTop="5dp"/>
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/article_title"
-            style="@style/PageTitle"
-            android:textColor="@color/white"
-            tools:text="Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
         <WebView
             android:id="@+id/article_web_view"
