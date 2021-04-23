@@ -9,22 +9,13 @@ import android.widget.SeekBar
 import bio.models.three_d.R
 import bio.models.three_d.databinding.FragmentSettingBinding
 
-class SettingFragment : Fragment(R.layout.fragment_setting), SeekBar.OnSeekBarChangeListener {
+class SettingFragment : Fragment(R.layout.fragment_setting){
 
     private lateinit var binding: FragmentSettingBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSettingBinding.bind(view)
-        binding.textSizeSeekbar.setOnSeekBarChangeListener(this)
 
     }
-
-    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        binding.textSizeSeekbarTitle.text = "${progress}%"
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-
-    override fun onStopTrackingTouch(seekBar: SeekBar?) {}
 }
