@@ -8,6 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="textColorSecondary">#FFFFFF</color>
+
     <color name="customWhite">@color/white</color>
 
     <color name="primary">#1F6DF6</color>
