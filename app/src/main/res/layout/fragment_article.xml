@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_back"
     tools:context=".main_menu.article.ArticleFragment">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_night"/>
+        android:src="@drawable/bg_day"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +22,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="30dp"
-            android:paddingTop="40dp">
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     style="@style/PageTitle"
-                    android:textColor="@color/white"
+                    android:textColor="@color/textColorSecondary"
                     tools:text="Article title"
                     android:layout_weight="1" />
 
@@ -52,17 +52,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/ButtonText"
-                android:textColor="@color/white"
+                android:textColor="@color/textColorSecondary"
                 tools:text="Theme title"
                 android:layout_marginTop="5dp"/>
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/secondary"/>
+
         <WebView
             android:id="@+id/article_web_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="30dp"
             android:layout_marginHorizontal="30dp"
             android:overScrollMode="never"
             android:scrollbarThumbVertical="@drawable/custom_scrollbar_thumb"

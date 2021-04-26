@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         style="@style/SearchText"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/textColorSecondary"
         android:layout_marginTop="29dp"/>
 
 </LinearLayout>

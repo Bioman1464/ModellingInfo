@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/main_back"
     tools:context=".main_menu.settings.SettingFragment">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_night" />
+        android:src="@drawable/bg_day" />-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,8 +27,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="11dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
 
                 <ImageView
                     android:id="@+id/user_image"
@@ -46,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="@string/nickname"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/textColorSecondary" />
 
             </LinearLayout>
 
@@ -69,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/interface_str"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/textColorSecondary" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -84,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="9dp"
                         android:text="@string/text_size"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/textColorSecondary" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -108,7 +107,7 @@
                                 android:layoutDirection="rtl"
                                 android:minHeight="10dp"
                                 android:text="@string/tiny"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/textColorSecondary" />
 
                             <RadioButton
                                 android:id="@+id/radio_size_medium"
@@ -120,7 +119,7 @@
                                 android:layoutDirection="rtl"
                                 android:minHeight="10dp"
                                 android:text="@string/medium"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/textColorSecondary" />
 
                             <RadioButton
                                 android:id="@+id/radio_size_big"
@@ -132,7 +131,7 @@
                                 android:layoutDirection="rtl"
                                 android:minHeight="10dp"
                                 android:text="@string/big"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/textColorSecondary" />
 
                         </RadioGroup>
 
@@ -153,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="9dp"
                         android:text="@string/language"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/textColorSecondary" />
 
                     <RadioGroup
                         android:id="@+id/language_radio_group"
@@ -170,7 +169,7 @@
                             android:layoutDirection="rtl"
                             android:minHeight="10dp"
                             android:text="@string/russian"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/textColorSecondary" />
 
                         <RadioButton
                             android:id="@+id/radio_english"
@@ -181,7 +180,7 @@
                             android:layoutDirection="rtl"
                             android:minHeight="10dp"
                             android:text="@string/english"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/textColorSecondary" />
                     </RadioGroup>
                 </LinearLayout>
 
@@ -197,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
                         android:text="@string/color_theme"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/textColorSecondary" />
 
                     <RadioGroup
                         android:id="@+id/color_theme_radio_group"
@@ -214,7 +213,7 @@
                             android:layoutDirection="rtl"
                             android:minHeight="14dp"
                             android:text="@string/dark_theme"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/textColorSecondary" />
 
                         <RadioButton
                             android:id="@+id/radio_light_theme"
@@ -225,7 +224,7 @@
                             android:layoutDirection="rtl"
                             android:minHeight="14dp"
                             android:text="@string/light_theme"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/textColorSecondary" />
                     </RadioGroup>
 
                 </LinearLayout>
@@ -241,8 +240,9 @@
                         style="@style/SettingsTextTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:text="@string/notification_sound"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/textColorSecondary" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -257,7 +257,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/notification"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/textColorSecondary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/notification_switch"
@@ -280,7 +280,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/sound"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/textColorSecondary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/sound_switch"

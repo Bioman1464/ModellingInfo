@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<carbon.widget.LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="horizontal">
+<carbon.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
 
 <carbon.widget.LinearLayout
     android:layout_width="match_parent"
@@ -28,8 +28,9 @@ android:orientation="horizontal">
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:minHeight="80dp"
-            android:textColor="@color/white"
+            android:textColor="@color/textColorPrimary"
             android:gravity="center_vertical"
+            tools:text="Article title"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

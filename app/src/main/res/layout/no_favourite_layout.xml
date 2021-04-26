@@ -37,7 +37,7 @@
                 style="@style/SearchText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/textColorSecondary"
                 android:gravity="center_vertical"
                 android:text="@string/to_main_page"
                 android:paddingHorizontal="29dp"

@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/main_back"
     tools:context=".main_menu.favourite.FavouriteFragment">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_night"/>
+        android:src="@drawable/bg_day"/>-->
 
     <carbon.widget.LinearLayout
         android:orientation="vertical"
@@ -22,12 +21,12 @@
         <TextView
             android:id="@+id/home_title"
             style="@style/PageTitle"
-            android:textColor="@color/white"
+            android:textColor="@color/textColorSecondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@string/favourite"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:layout_marginHorizontal="30dp"/>
 
