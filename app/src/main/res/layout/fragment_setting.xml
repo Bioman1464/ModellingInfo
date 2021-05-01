@@ -204,19 +204,18 @@
                         android:layout_height="wrap_content">
 
                         <RadioButton
-                            android:id="@+id/radio_dark_theme"
+                            android:id="@+id/radio_night_theme"
                             style="@style/RadioButtonText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:checked="true"
                             android:layoutDirection="rtl"
                             android:minHeight="14dp"
                             android:text="@string/dark_theme"
                             android:textColor="@color/textColorSecondary" />
 
                         <RadioButton
-                            android:id="@+id/radio_light_theme"
+                            android:id="@+id/radio_day_theme"
                             style="@style/RadioButtonText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

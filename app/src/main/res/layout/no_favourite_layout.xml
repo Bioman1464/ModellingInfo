@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         style="@style/SearchText"
-        android:textColor="@color/white"
+        android:textColor="@color/textColorSecondary"
         android:text="@string/no_favourite_items_yet"/>
 
     <carbon.widget.LinearLayout
@@ -37,7 +37,7 @@
                 style="@style/SearchText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textColorSecondary"
+                android:textColor="@color/textColorPrimary"
                 android:gravity="center_vertical"
                 android:text="@string/to_main_page"
                 android:paddingHorizontal="29dp"
