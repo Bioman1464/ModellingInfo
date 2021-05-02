@@ -1,10 +1,16 @@
 package bio.models.three_d.main_menu.search
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +22,7 @@ import bio.models.three_d.main_menu.common.MainAdapter
 import bio.models.three_d.main_menu.common.article.ArticleData
 import bio.models.three_d.main_menu.search.search_recycler.SearchArticle
 import bio.models.three_d.main_menu.search.search_recycler.SearchArticleData
+
 
 class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
 
@@ -88,4 +95,36 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.d(this::class.java.simpleName, "OnStart")
+        showKeyboard(requireContext())
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(this::class.java.simpleName, "OnStop")
+        hideKeyboard(requireContext())
+    }
+
+    private fun hideKeyboard(context: Context) {
+        try {
+            (context as Activity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+            if (context.currentFocus != null && context.currentFocus!!
+                    .windowToken != null
+            ) {
+                (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(
+                    context.currentFocus!!.windowToken, 0
+                )
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun showKeyboard(context: Context) {
+        (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).toggleSoftInput(
+            InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY
+        )
+    }
 }
