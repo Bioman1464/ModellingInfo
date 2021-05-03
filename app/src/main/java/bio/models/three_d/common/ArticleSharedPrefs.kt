@@ -3,12 +3,13 @@ package bio.models.three_d.common
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import bio.models.three_d.common.data.Article
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class SharedPrefs private constructor(context: Context) {
+class ArticleSharedPrefs private constructor(context: Context) {
 
-    companion object : SingletonHolder<SharedPrefs, Context>(::SharedPrefs) {
+    companion object : SingletonHolder<ArticleSharedPrefs, Context>(::ArticleSharedPrefs) {
         lateinit var prefs: SharedPreferences
         var favouriteArticles: ArrayList<Article>? = null
         lateinit var gson: Gson
@@ -17,6 +18,20 @@ class SharedPrefs private constructor(context: Context) {
     init {
         prefs = context.getSharedPreferences("articles", Context.MODE_PRIVATE)
         gson = Gson()
+    }
+
+    fun reloadFavouriteArticleList(newList: List<Article>): Boolean {
+        clearData()
+        favouriteArticles = arrayListOf()
+        if (newList.isNullOrEmpty()) {
+            return true
+        }
+        favouriteArticles?.addAll(newList.toTypedArray())
+        return saveFavouriteArticleList()
+    }
+
+    fun clearData() {
+        prefs.edit().clear().apply()
     }
 
     fun checkArticleFavourite(article: Article): Boolean {
@@ -66,13 +81,14 @@ class SharedPrefs private constructor(context: Context) {
     fun retrieveFavouriteArticleList(): ArrayList<Article> {
         val articleListRaw = prefs.getString("article_favourite_list", null)
             ?: return arrayListOf()
-        val articleList: ArrayList<Article> = gson.fromJson(
-            articleListRaw,
-            object : TypeToken<List<Article>>() {}.type
-        )
-        favouriteArticles = articleList
+
+        articleListRaw.let {
+            val articleList: ArrayList<Article> = gson.fromJson(
+                articleListRaw,
+                object : TypeToken<List<Article>>() {}.type
+            )
+            favouriteArticles = articleList
+        }
         return favouriteArticles as ArrayList<Article>
     }
 }
-
-data class Article(var id: Int, var themeId: Int)
