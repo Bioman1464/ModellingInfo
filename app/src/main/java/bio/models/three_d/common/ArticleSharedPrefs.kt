@@ -49,6 +49,10 @@ class ArticleSharedPrefs private constructor(context: Context) {
 
     fun unfavouriteArticle(article: Article): Boolean {
         val currentArticleList = retrieveFavouriteArticleList()
+        Log.d("ArticleRemove", "${article.toString()}")
+        for (articleCurrent in currentArticleList) {
+            Log.d("Articles", "${articleCurrent.toString()}")
+        }
         Log.d("unfavouriteArticle", currentArticleList.size.toString())
         if (currentArticleList.contains(article)) {
             favouriteArticles?.remove(article)
@@ -64,7 +68,6 @@ class ArticleSharedPrefs private constructor(context: Context) {
             return null
         }
         val currentArticleList = retrieveFavouriteArticleList()
-        Log.d("setFavouriteArticle", currentArticleList.size.toString())
         currentArticleList.add(article)
         Log.d("setFavouriteArticle", currentArticleList.size.toString())
         return prefs.edit()
@@ -73,6 +76,9 @@ class ArticleSharedPrefs private constructor(context: Context) {
     }
 
     fun saveFavouriteArticleList(): Boolean {
+        for (article in favouriteArticles!!) {
+            Log.d("ArticleToSave", article.toString())
+        }
         return prefs.edit()
             .putString("article_favourite_list", gson.toJson(favouriteArticles))
             .commit()
@@ -88,6 +94,9 @@ class ArticleSharedPrefs private constructor(context: Context) {
                 object : TypeToken<List<Article>>() {}.type
             )
             favouriteArticles = articleList
+        }
+        for (article in favouriteArticles!!) {
+           Log.d("RetrievedArticle", article.toString())
         }
         return favouriteArticles as ArrayList<Article>
     }
