@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bio.models.three_d">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".main_menu.App"
         android:allowBackup="true"
