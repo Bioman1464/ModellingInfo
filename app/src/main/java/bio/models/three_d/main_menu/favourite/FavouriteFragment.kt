@@ -10,10 +10,9 @@ import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
 import bio.models.three_d.common.AdapterListener
 import bio.models.three_d.common.RecyclerItem
-import bio.models.three_d.common.SharedPrefs
+import bio.models.three_d.common.ArticleSharedPrefs
 import bio.models.three_d.databinding.FragmentFavouriteBinding
 import bio.models.three_d.main_menu.common.MainAdapter
-import bio.models.three_d.main_menu.common.MarginItemDecoration
 import bio.models.three_d.main_menu.common.article.Article
 import bio.models.three_d.main_menu.common.article.ArticleData
 
@@ -48,7 +47,7 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), AdapterListener
     }
 
     private fun getFavouriteArticles(): MutableList<RecyclerItem> {
-        val sharedPrefs = SharedPrefs.getInstance(requireContext())
+        val sharedPrefs = ArticleSharedPrefs.getInstance(requireContext())
         val favouriteArticleIds = sharedPrefs.retrieveFavouriteArticleList()
         val favouriteArticles = mutableListOf<RecyclerItem>()
         for (item in favouriteArticleIds) {

@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import bio.models.three_d.R
-import bio.models.three_d.common.Article
-import bio.models.three_d.common.SharedPrefs
+import bio.models.three_d.common.data.Article
+import bio.models.three_d.common.ArticleSharedPrefs
 import bio.models.three_d.databinding.FragmentArticleBinding
 import bio.models.three_d.main_menu.common.article.ArticleData
 import bio.models.three_d.main_menu.home.theme.ThemeData
@@ -17,14 +17,14 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 
     private lateinit var navArgs: ArticleFragmentArgs
     private lateinit var binding: FragmentArticleBinding
-    private lateinit var prefs: SharedPrefs
+    private lateinit var prefsArticle: ArticleSharedPrefs
     private lateinit var article: Article
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navArgs = ArticleFragmentArgs.fromBundle(requireArguments())
         binding = FragmentArticleBinding.bind(view)
-        prefs = SharedPrefs.getInstance(requireContext())
+        prefsArticle = ArticleSharedPrefs.getInstance(requireContext())
         setTitle()
         initView()
     }
@@ -51,7 +51,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     }
 
     private fun checkIfFavourite() {
-        val isFavourite = prefs.checkArticleFavourite(article)
+        val isFavourite = prefsArticle.checkArticleFavourite(article)
         Log.d("checkIfFavourite", isFavourite.toString())
         setFavouriteStar(isFavourite)
     }
@@ -66,17 +66,17 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 
     private fun changeFavourite() {
         val prefsResponse: Boolean?
-        if (prefs.checkArticleFavourite(article)) {
+        if (prefsArticle.checkArticleFavourite(article)) {
             setFavouriteStar(false)
-            prefsResponse = prefs.unfavouriteArticle(article)
+            prefsResponse = prefsArticle.unfavouriteArticle(article)
         } else {
             setFavouriteStar(true)
-            prefsResponse = prefs.setFavouriteArticle(article)
+            prefsResponse = prefsArticle.setFavouriteArticle(article)
         }
         if (prefsResponse == null) {
             Toast.makeText(requireContext(), "Ошибка записи в базу данных", Toast.LENGTH_SHORT)
                 .show()
-            setFavouriteStar(prefs.checkArticleFavourite(article))
+            setFavouriteStar(prefsArticle.checkArticleFavourite(article))
         }
     }
 

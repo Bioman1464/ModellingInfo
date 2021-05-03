@@ -79,26 +79,4 @@ object ArticleData {
             else -> context.resources.getStringArray(R.array.blocking_article_titles)
         }
     }
-
-    fun themeIdByArticleId(id: Int): Int {
-        return when (id) {
-            in 0..4 -> 0
-            in 5..8 -> 1
-            in 9..13 -> 2
-            in 14..15 -> 3
-            in 16..21 -> 4
-            else -> 0
-        }
-    }
-
-    fun orderIdByArticleId(id: Int): Int {
-        return when (id) {
-            in 0..4 -> id - 0
-            in 5..8 -> id - 5
-            in 9..13 -> id - 9
-            in 14..15 -> id - 14
-            in 16..21 -> id - 16
-            else -> 0
-        }
-    }
 }
