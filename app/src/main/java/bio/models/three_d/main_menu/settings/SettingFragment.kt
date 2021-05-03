@@ -5,20 +5,22 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import bio.models.three_d.R
+import bio.models.three_d.common.ArticleSharedPrefs
 import bio.models.three_d.common.ImageDownloadTask
 import bio.models.three_d.common.ThemeSharedPrefs
 import bio.models.three_d.common.UserAccount
+import bio.models.three_d.common.firebase.data.FirebaseDataHelper
+import bio.models.three_d.common.firebase.user.FirebaseUserHelper
 import bio.models.three_d.databinding.FragmentSettingBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
 
@@ -91,27 +93,21 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
             updateUiAccountInfo(UserAccount.photoUrl, UserAccount.name)
             return
         }
-
-        val googleSignInOptions = getGoogleSignInOptions()
-        googleSignInOptions?.let {
-            val mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), it)
-            val signInIntent = mGoogleSignInClient.signInIntent
-            startActivityForResult(signInIntent, 1)
+        val signInIntent = FirebaseDataHelper.getSignInIntent(requireContext())
+        signInIntent?.let {
+            startActivityForResult(it, 1)
+            return
         }
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.service_is_not_responding),
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     private fun checkIfLoggedIn(): Boolean {
         auth.currentUser ?: return false
         return true
-    }
-
-    private fun getGoogleSignInOptions(): GoogleSignInOptions? {
-        return GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).run {
-            requestIdToken(getString(R.string.sign_in_key_id))
-            requestEmail()
-            requestId()
-            build()
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -161,25 +157,9 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
     private fun logOutUser() {
         auth.signOut()
         UserAccount.clearData()
-        googleLogOut()
+        FirebaseUserHelper.logOutClient(requireContext())
         updateUiAccountInfo(null, null)
-    }
-
-    private fun googleLogOut() {
-        val googleSignOptions = getGoogleSignInOptions()
-        googleSignOptions?.let {
-            val googleClient = GoogleSignIn.getClient(requireActivity(), it)
-            googleClient.revokeAccess().addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "Access successfully revoked")
-                    return@addOnCompleteListener
-                }
-                if (task.isCanceled) {
-                    Log.d(TAG, "Access revoke canceled")
-                    return@addOnCompleteListener
-                }
-            }
-        }
+        ArticleSharedPrefs.getInstance(requireContext()).clearData()
     }
 
     private fun updateUiAccountInfo(userImageUrl: Uri?, userName: String?) {
