@@ -31,12 +31,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterListener {
 
     private fun initialize() {
         binding.themeRecycler.apply {
-            /*addItemDecoration(
-                MarginItemDecoration(
-                resources
-                    .getDimension(R.dimen.recycler_item_spacing)
-                    .toInt()
-            ))*/
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import bio.models.three_d.MainMenuActivity
 import bio.models.three_d.R
 import bio.models.three_d.common.ArticleSharedPrefs
 import bio.models.three_d.common.ImageDownloadTask
@@ -15,13 +16,16 @@ import bio.models.three_d.common.ThemeSharedPrefs
 import bio.models.three_d.common.UserAccount
 import bio.models.three_d.common.firebase.data.FirebaseDataHelper
 import bio.models.three_d.common.firebase.user.FirebaseUserHelper
+import bio.models.three_d.common.shared_preferences.LanguageSharedPrefs
 import bio.models.three_d.databinding.FragmentSettingBinding
+import bio.models.three_d.main_menu.Language
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.yariksoffice.lingver.Lingver
 
 
 class SettingFragment : Fragment(R.layout.fragment_setting) {
@@ -30,14 +34,17 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentSettingBinding
     private lateinit var themeSharedPrefs: ThemeSharedPrefs
+    private lateinit var languageSharedPrefs: LanguageSharedPrefs
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSettingBinding.bind(view)
         themeSharedPrefs = ThemeSharedPrefs.getInstance(requireContext())
+        languageSharedPrefs = LanguageSharedPrefs.getInstance(requireContext())
         auth = FirebaseAuth.getInstance()
 
         setSettingsConfiguration()
+        setLanguageConfiguration()
 
         setClickListeners()
 
@@ -46,12 +53,15 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
 
     private fun setSettingsConfiguration() {
         when (themeSharedPrefs.getTheme()) {
-            0 -> {
-                binding.radioDayTheme.isChecked = true
-            }
-            1 -> {
-                binding.radioNightTheme.isChecked = true
-            }
+            0 -> binding.radioDayTheme.isChecked = true
+            1 -> binding.radioNightTheme.isChecked = true
+        }
+    }
+
+    private fun setLanguageConfiguration() {
+        when(languageSharedPrefs.getLanguage()) {
+            Language.LANGUAGE_RUSSIAN -> binding.radioRussian.isChecked = true
+            Language.LANGUAGE_ENGLISH -> binding.radioEnglish.isChecked = true
         }
     }
 
@@ -67,6 +77,17 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     themeSharedPrefs.setTheme(1)
                     return@setOnCheckedChangeListener
+                }
+            }
+        }
+
+        binding.languageRadioGroup.setOnCheckedChangeListener { _, id ->
+            when (id) {
+                binding.radioRussian.id -> {
+                    setNewLocale(Language.LANGUAGE_RUSSIAN, Language.RUSSIAN_COUNTRY)
+                }
+                binding.radioEnglish.id -> {
+                    setNewLocale(Language.LANGUAGE_ENGLISH, Language.ENGLISH_COUNTRY)
                 }
             }
         }
@@ -176,4 +197,16 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
         binding.userNickname.text = userName ?: getString(R.string.nickname)
     }
 
+    private fun setNewLocale(language: String, country: String) {
+        languageSharedPrefs.setLanguage(language)
+        Lingver.getInstance().setLocale(requireContext(), language, country)
+        restart()
+    }
+
+    private fun restart() {
+        val i = Intent(requireContext(), MainMenuActivity::class.java)
+        startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
+
+        Toast.makeText(requireContext(), "Activity restarted", Toast.LENGTH_SHORT).show()
+    }
 }
