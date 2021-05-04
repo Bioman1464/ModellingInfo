@@ -32,13 +32,12 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp">
 
-                <ImageView
+                <github.informramiz.simplecircleimageview.CircleImageView
                     android:id="@+id/user_image"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:scaleType="fitCenter"
-                    android:background="@drawable/circle_image_bg"
-                    android:src="@drawable/ic_user_image" />
+                    android:src="@drawable/ic_user_image"/>
 
                 <TextView
                     android:id="@+id/user_nickname"
