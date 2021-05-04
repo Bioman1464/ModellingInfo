@@ -16,13 +16,15 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/menu_nav_graph" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <bio.models.three_d.common.BottomNavigationViewWithIndicator
         android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/main_back"
-        app:itemIconSize="30dp"
+        android:minHeight="?actionBarSize"
         app:labelVisibilityMode="unlabeled"
+        app:itemIconSize="30dp"
+        app:itemHorizontalTranslationEnabled="false"
         app:menu="@menu/main_nav_menu" />
 
 </LinearLayout>
