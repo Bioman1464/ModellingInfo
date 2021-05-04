@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import bio.models.three_d.R
+import bio.models.three_d.common.ArticleSharedPrefs
+import bio.models.three_d.common.data.Article
+import bio.models.three_d.common.data.ArticleHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.OnCompleteListener
@@ -42,6 +45,26 @@ object FirebaseDataHelper {
     fun getUserFavouriteReference (context: Context, uid: String): DatabaseReference {
         val dbReference = getDatabaseReference(context)
         return dbReference.child("users").child(uid).child("favourites")
+    }
+
+    fun getUserFavouriteArticles(uid: String, context: Context) {
+        getUserFavouriteReference(context, uid)
+            .get()
+            .addOnCompleteListener(onCompleteListener {
+                val articles = parseFavouriteList(it)
+                saveFavouriteList(articles, context)
+            })
+    }
+
+    private fun parseFavouriteList(articleIdRawList: String): List<Article> {
+        val articles: List<Article> = ArticleHelper.parseRawArticleIds(articleIdRawList)
+        return articles
+    }
+
+    private fun saveFavouriteList(articleList: List<Article>, context: Context) {
+        Log.d(TAG, "Save articleList: ${articleList.toString()}")
+        val sharedPreferences = ArticleSharedPrefs.getInstance(context)
+        sharedPreferences.reloadFavouriteArticleList(articleList)
     }
 
     fun saveUsersFavourite (newValue: String, databaseReference: DatabaseReference,
