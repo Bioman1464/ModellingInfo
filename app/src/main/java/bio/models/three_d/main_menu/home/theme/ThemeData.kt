@@ -46,4 +46,9 @@ object ThemeData {
         return list
     }
 
+    fun recreateList(context: Context) {
+        items = null
+        items = createList(context)
+    }
+
 }

@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import bio.models.three_d.common.UserAccount
 import bio.models.three_d.common.firebase.data.FirebaseDataHelper
+import bio.models.three_d.main_menu.common.article.ArticleData
+import bio.models.three_d.main_menu.home.theme.ThemeData
 import com.google.firebase.auth.FirebaseAuth
 
 //TODO:: move get favourite article to favourite page
@@ -20,6 +22,11 @@ class MainMenuActivity : AppCompatActivity() {
 //            .findFragmentById(R.id.main_nav_graph) as NavHostFragment? ?: return
 //        val navController = host.navController
         getFirebaseUser()
+        initAppData()
+    }
+
+    private fun initAppData() {
+        ThemeData.recreateList(this)
     }
 
     private fun getFirebaseUser() {
