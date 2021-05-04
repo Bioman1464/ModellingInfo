@@ -2,12 +2,8 @@ package bio.models.three_d
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import bio.models.three_d.common.ArticleSharedPrefs
 import bio.models.three_d.common.UserAccount
-import bio.models.three_d.common.data.Article
-import bio.models.three_d.common.data.ArticleHelper
 import bio.models.three_d.common.firebase.data.FirebaseDataHelper
 import com.google.firebase.auth.FirebaseAuth
 
@@ -32,7 +28,7 @@ class MainMenuActivity : AppCompatActivity() {
             val user = auth.currentUser
             user?.let {
                 updateAccountData(user.uid, user.photoUrl, user.displayName)
-                parseActualDBData(user.uid)
+                updateLocalStorage(user.uid)
             }
         }
     }
@@ -48,21 +44,7 @@ class MainMenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun parseActualDBData(uid: String) {
-        FirebaseDataHelper
-            .getUserFavouriteReference(this, uid)
-            .get()
-            .addOnCompleteListener(FirebaseDataHelper.onCompleteListener(::parseFavouriteList))
-    }
-
-    private fun parseFavouriteList(articleIdRawList: String) {
-        val articles: List<Article> = ArticleHelper.parseRawArticleIds(articleIdRawList)
-        saveFavouriteList(articles)
-    }
-
-    private fun saveFavouriteList(articleList: List<Article>) {
-        Log.d(TAG, "Save articleList: ${articleList.toString()}")
-        val sharedPreferences = ArticleSharedPrefs.getInstance(this)
-        sharedPreferences.reloadFavouriteArticleList(articleList)
+    private fun updateLocalStorage(uid: String) {
+        FirebaseDataHelper.getUserFavouriteArticles(uid, this)
     }
 }
