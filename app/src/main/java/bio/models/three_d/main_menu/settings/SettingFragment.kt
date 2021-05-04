@@ -145,6 +145,7 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
                             name = it.displayName
                             photoUrl = it.photoUrl
                         }
+                        updateLocalStorage(it.uid)
                     }
 
                     Log.d(TAG, "Successful sign-in through firebase")
@@ -160,6 +161,10 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
         FirebaseUserHelper.logOutClient(requireContext())
         updateUiAccountInfo(null, null)
         ArticleSharedPrefs.getInstance(requireContext()).clearData()
+    }
+
+    private fun updateLocalStorage(uid: String) {
+        FirebaseDataHelper.getUserFavouriteArticles(uid, requireContext())
     }
 
     private fun updateUiAccountInfo(userImageUrl: Uri?, userName: String?) {
