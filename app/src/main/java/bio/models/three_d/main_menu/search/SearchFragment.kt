@@ -23,7 +23,6 @@ import bio.models.three_d.main_menu.common.article.ArticleData
 import bio.models.three_d.main_menu.search.search_recycler.SearchArticle
 import bio.models.three_d.main_menu.search.search_recycler.SearchArticleData
 
-
 class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
 
     private lateinit var binding: FragmentSearchBinding
@@ -36,6 +35,7 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
     }
 
     private fun initialize() {
+        binding.articleSearch.requestFocus()
         binding.infoLayout.searchInfoTitle.text =
             requireContext().resources.getText(R.string.enter_at_least_two_symbols)
         binding.infoLayout.root.visibility = View.VISIBLE
@@ -98,12 +98,14 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
     override fun onStart() {
         super.onStart()
         Log.d(this::class.java.simpleName, "OnStart")
+        binding.articleSearch.requestFocus()
         showKeyboard(requireContext())
     }
 
     override fun onStop() {
         super.onStop()
         Log.d(this::class.java.simpleName, "OnStop")
+        binding.articleSearch.requestFocus()
         hideKeyboard(requireContext())
     }
 
