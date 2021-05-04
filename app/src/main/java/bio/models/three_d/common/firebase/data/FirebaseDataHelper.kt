@@ -3,7 +3,7 @@ package bio.models.three_d.common.firebase.data
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import bio.models.three_d.R
+import bio.models.three_d.FirebaseSecrets
 import bio.models.three_d.common.ArticleSharedPrefs
 import bio.models.three_d.common.data.Article
 import bio.models.three_d.common.data.ArticleHelper
@@ -17,9 +17,9 @@ object FirebaseDataHelper {
 
     private val TAG = this::class.java.simpleName
 
-    fun getGoogleSignInOptions(context: Context): GoogleSignInOptions? {
+    fun getGoogleSignInOptions(): GoogleSignInOptions? {
         return GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).run {
-            requestIdToken(context.getString(R.string.sign_in_key_id))
+            requestIdToken(FirebaseSecrets.signInKey)
             requestEmail()
             requestId()
             build()
@@ -27,7 +27,7 @@ object FirebaseDataHelper {
     }
 
     fun getSignInIntent(context: Context): Intent? {
-        val googleSignInOptions = getGoogleSignInOptions(context)
+        val googleSignInOptions = getGoogleSignInOptions()
         var signInIntent: Intent? = null
         googleSignInOptions?.let {
             val mGoogleSignInClient = GoogleSignIn.getClient(context, it)
@@ -38,7 +38,7 @@ object FirebaseDataHelper {
 
     private fun getDatabaseReference(context: Context): DatabaseReference {
         return FirebaseDatabase
-            .getInstance(context.getString(R.string.database_reference))
+            .getInstance(FirebaseSecrets.databaseReference)
             .reference
     }
 

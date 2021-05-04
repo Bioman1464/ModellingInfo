@@ -11,7 +11,7 @@ object FirebaseUserHelper {
     private val TAG = this::class.java.simpleName
 
     fun getClient(context: Context): GoogleSignInClient? {
-        val googleSignOptions = FirebaseDataHelper.getGoogleSignInOptions(context)
+        val googleSignOptions = FirebaseDataHelper.getGoogleSignInOptions()
         var googleSignInClient: GoogleSignInClient? = null
         googleSignOptions?.let {
             googleSignInClient = GoogleSignIn.getClient(context, it)
