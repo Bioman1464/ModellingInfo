@@ -13,10 +13,11 @@ import bio.models.three_d.common.UserAccount
 import bio.models.three_d.common.article.ArticleRepository
 import bio.models.three_d.common.data.ArticleHelper
 import bio.models.three_d.common.firebase.data.FirebaseDataHelper
+import bio.models.three_d.common.shared_preferences.LanguageSharedPrefs
 import bio.models.three_d.databinding.FragmentArticleBinding
 import bio.models.three_d.main_menu.common.article.ArticleData
 import bio.models.three_d.main_menu.home.theme.ThemeData
-import com.google.firebase.database.snapshot.BooleanNode
+import com.yariksoffice.lingver.Lingver
 
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
@@ -33,6 +34,12 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         prefsArticle = ArticleSharedPrefs.getInstance(requireContext())
         showArticleData()
         initView()
+        setLocale()
+    }
+
+    private fun setLocale() {
+        val savedLanguage = LanguageSharedPrefs.getInstance(requireContext()).getLanguage()
+        Lingver.getInstance().setLocale(requireContext(), savedLanguage)
     }
 
     private fun initView() {
