@@ -44,7 +44,7 @@
                 android:id="@+id/article_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="49dp"
+                android:paddingTop="30dp"
                 android:layout_marginHorizontal="20dp"
                 android:clipToPadding="false"
                 android:overScrollMode="never"

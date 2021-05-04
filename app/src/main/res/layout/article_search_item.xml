@@ -23,7 +23,7 @@
             android:minHeight="80dp"
             android:gravity="center_vertical"
             android:paddingHorizontal="20dp"
-            android:background="@drawable/item_gradient_bg">
+            android:background="@drawable/gradient_blue_item_bg">
 
             <TextView
                 android:id="@+id/article_title"
