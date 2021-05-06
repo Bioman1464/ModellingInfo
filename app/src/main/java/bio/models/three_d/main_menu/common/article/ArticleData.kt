@@ -9,12 +9,12 @@ object ArticleData {
 
     fun getList(context: Context): List<Article> {
         if (items.isNullOrEmpty()) {
-            items = getAll(context)
+            items = createList(context)
         }
         return items as List<Article>
     }
 
-    fun getAll(context: Context): List<Article> {
+    fun createList(context: Context): List<Article> {
         val descrStringArray = context.resources.getStringArray(R.array.tech_article_bodies)
         val articleList = arrayListOf<Article>()
         for (themeId in 0..4) {
@@ -77,5 +77,10 @@ object ArticleData {
             4 -> context.resources.getStringArray(R.array.supply_article_titles)
             else -> context.resources.getStringArray(R.array.blocking_article_titles)
         }
+    }
+
+    fun recreateList(context: Context) {
+        items = null
+        items = createList(context)
     }
 }
