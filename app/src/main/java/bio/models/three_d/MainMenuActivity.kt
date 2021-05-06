@@ -9,7 +9,6 @@ import bio.models.three_d.main_menu.common.article.ArticleData
 import bio.models.three_d.main_menu.home.theme.ThemeData
 import com.google.firebase.auth.FirebaseAuth
 
-//TODO:: move get favourite article to favourite page
 class MainMenuActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
