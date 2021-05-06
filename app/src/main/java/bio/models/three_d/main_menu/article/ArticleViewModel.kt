@@ -1,4 +1,4 @@
-package bio.models.three_d.common
+package bio.models.three_d.main_menu.article
 
 import androidx.lifecycle.ViewModel
 

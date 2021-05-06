@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import bio.models.three_d.R
 import bio.models.three_d.common.data.Article
-import bio.models.three_d.common.ArticleSharedPrefs
+import bio.models.three_d.common.shared_preferences.ArticleSharedPrefs
 import bio.models.three_d.common.UserAccount
 import bio.models.three_d.common.article.ArticleRepository
 import bio.models.three_d.common.data.ArticleHelper

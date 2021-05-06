@@ -2,7 +2,6 @@ package bio.models.three_d.main_menu.common.article
 
 import android.content.Context
 import bio.models.three_d.R
-import bio.models.three_d.common.RecyclerItem
 
 object ArticleData {
 

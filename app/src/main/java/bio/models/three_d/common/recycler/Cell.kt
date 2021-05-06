@@ -1,10 +1,11 @@
-package bio.models.three_d.common
+package bio.models.three_d.common.recycler
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
+import bio.models.three_d.common.AdapterListener
 
 abstract class Cell<T> {
 

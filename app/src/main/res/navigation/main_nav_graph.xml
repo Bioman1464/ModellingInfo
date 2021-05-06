@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainMenuNavFragment"
-        android:name="bio.models.three_d.MainMenuNavFragment"
+        android:name="bio.models.three_d.main_menu.navigation.MainMenuNavFragment"
         android:label="fragment_main_menu_nav"
         tools:layout="@layout/fragment_menu_nav" >
     </fragment>

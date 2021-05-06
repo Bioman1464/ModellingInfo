@@ -2,7 +2,7 @@ package bio.models.three_d.main_menu
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
-import bio.models.three_d.common.ThemeSharedPrefs
+import bio.models.three_d.common.shared_preferences.ThemeSharedPrefs
 import bio.models.three_d.common.shared_preferences.LanguageSharedPrefs
 import com.yariksoffice.lingver.Lingver
 import com.yariksoffice.lingver.store.PreferenceLocaleStore

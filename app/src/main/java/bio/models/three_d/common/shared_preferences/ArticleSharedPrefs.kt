@@ -1,8 +1,9 @@
-package bio.models.three_d.common
+package bio.models.three_d.common.shared_preferences
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import bio.models.three_d.common.SingletonHolder
 import bio.models.three_d.common.data.Article
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

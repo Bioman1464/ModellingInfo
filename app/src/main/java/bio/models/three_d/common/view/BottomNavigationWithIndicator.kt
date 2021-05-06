@@ -1,4 +1,4 @@
-package bio.models.three_d.common
+package bio.models.three_d.common.view
 
 import android.animation.ValueAnimator
 import android.content.Context

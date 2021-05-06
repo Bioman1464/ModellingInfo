@@ -1,4 +1,4 @@
-package bio.models.three_d.common
+package bio.models.three_d.common.recycler
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

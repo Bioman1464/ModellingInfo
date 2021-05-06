@@ -1,7 +1,6 @@
 package bio.models.three_d.main_menu.article
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -11,10 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
 import bio.models.three_d.common.AdapterListener
-import bio.models.three_d.common.ArticleViewModel
 import bio.models.three_d.databinding.FragmentArticleListBinding
 import bio.models.three_d.main_menu.common.MainAdapter
-import bio.models.three_d.main_menu.common.MarginItemDecoration
 import bio.models.three_d.main_menu.common.article.ArticleData
 
 class ArticleListFragment: Fragment(R.layout.fragment_article_list), AdapterListener {

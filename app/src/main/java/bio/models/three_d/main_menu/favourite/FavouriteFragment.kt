@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterClick
 import bio.models.three_d.common.AdapterListener
-import bio.models.three_d.common.RecyclerItem
-import bio.models.three_d.common.ArticleSharedPrefs
+import bio.models.three_d.common.recycler.RecyclerItem
+import bio.models.three_d.common.shared_preferences.ArticleSharedPrefs
 import bio.models.three_d.databinding.FragmentFavouriteBinding
 import bio.models.three_d.main_menu.common.MainAdapter
 import bio.models.three_d.main_menu.common.article.Article

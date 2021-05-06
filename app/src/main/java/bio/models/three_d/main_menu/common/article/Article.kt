@@ -1,7 +1,7 @@
 package bio.models.three_d.main_menu.common.article
 
 import bio.models.three_d.common.AdapterClick
-import bio.models.three_d.common.RecyclerItem
+import bio.models.three_d.common.recycler.RecyclerItem
 
 data class Article (
     override val id: String?,

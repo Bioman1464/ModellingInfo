@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import bio.models.three_d.R
 import bio.models.three_d.common.AdapterListener
-import bio.models.three_d.common.Cell
-import bio.models.three_d.common.RecyclerItem
+import bio.models.three_d.common.recycler.Cell
+import bio.models.three_d.common.recycler.RecyclerItem
 import bio.models.three_d.databinding.ThemeItemBinding
 
 object ThemeCell: Cell<RecyclerItem>() {

@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import bio.models.three_d.MainMenuActivity
 import bio.models.three_d.R
-import bio.models.three_d.common.ArticleSharedPrefs
+import bio.models.three_d.common.shared_preferences.ArticleSharedPrefs
 import bio.models.three_d.common.ImageDownloadTask
-import bio.models.three_d.common.ThemeSharedPrefs
+import bio.models.three_d.common.shared_preferences.ThemeSharedPrefs
 import bio.models.three_d.common.UserAccount
 import bio.models.three_d.common.firebase.data.FirebaseDataHelper
 import bio.models.three_d.common.firebase.user.FirebaseUserHelper

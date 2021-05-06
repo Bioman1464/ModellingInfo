@@ -3,6 +3,9 @@ package bio.models.three_d.common
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import bio.models.three_d.common.recycler.Cell
+import bio.models.three_d.common.recycler.CellTypes
+import bio.models.three_d.common.recycler.RecyclerItem
 
 abstract class BaseListAdapter(
     vararg types: Cell<RecyclerItem>,

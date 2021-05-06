@@ -1,6 +1,6 @@
 package bio.models.three_d.common.article
 
-import bio.models.three_d.common.ArticleSharedPrefs
+import bio.models.three_d.common.shared_preferences.ArticleSharedPrefs
 import bio.models.three_d.common.UserAccount
 import bio.models.three_d.common.data.Article
 import bio.models.three_d.common.data.ArticleHelper

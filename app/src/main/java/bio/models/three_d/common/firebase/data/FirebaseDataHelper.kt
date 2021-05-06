@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import bio.models.three_d.FirebaseSecrets
-import bio.models.three_d.common.ArticleSharedPrefs
+import bio.models.three_d.common.shared_preferences.ArticleSharedPrefs
 import bio.models.three_d.common.data.Article
 import bio.models.three_d.common.data.ArticleHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn

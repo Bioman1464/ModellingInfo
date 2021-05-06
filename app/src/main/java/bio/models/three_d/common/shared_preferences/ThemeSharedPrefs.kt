@@ -1,7 +1,8 @@
-package bio.models.three_d.common
+package bio.models.three_d.common.shared_preferences
 
 import android.content.Context
 import android.content.SharedPreferences
+import bio.models.three_d.common.SingletonHolder
 
 class ThemeSharedPrefs private constructor(context: Context) {
 

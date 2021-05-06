@@ -1,4 +1,7 @@
-package bio.models.three_d.common
+package bio.models.three_d.common.recycler
+
+import bio.models.three_d.common.NoSuchRecyclerItemTypeException
+import bio.models.three_d.common.NoSuchRecyclerViewTypeException
 
 class CellTypes<T>(vararg types: Cell<T>) {
 
