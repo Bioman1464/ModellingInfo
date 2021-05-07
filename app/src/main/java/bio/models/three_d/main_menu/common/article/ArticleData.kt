@@ -5,22 +5,35 @@ import bio.models.three_d.R
 
 object ArticleData {
 
+    private var articlesDescription: Array<String> = arrayOf()
+    private var articleTitles: MutableList<Array<String>> = mutableListOf()
     private var items: List<Article>? = null
 
-    fun getList(context: Context): List<Article> {
+    fun init (context: Context) {
+        articlesDescription = context.resources.getStringArray(R.array.article_bodies)
+        if (articleTitles.size != 0) {
+            articleTitles.clear()
+        }
+        articleTitles.add(context.resources.getStringArray(R.array.blocking_article_titles))
+        articleTitles.add(context.resources.getStringArray(R.array.detaling_article_title))
+        articleTitles.add(context.resources.getStringArray(R.array.tech_article_titles))
+        articleTitles.add(context.resources.getStringArray(R.array.textures_article_titles))
+        articleTitles.add(context.resources.getStringArray(R.array.supply_article_titles))
+    }
+
+    fun getList () : List<Article> {
         if (items.isNullOrEmpty()) {
-            items = createList(context)
+            items = createList()
         }
         return items as List<Article>
     }
 
-    fun createList(context: Context): List<Article> {
-        val descrStringArray = context.resources.getStringArray(R.array.tech_article_bodies)
+    fun createList (): List<Article> {
         val articleList = arrayListOf<Article>()
         for (themeId in 0..4) {
             val startId = getStartIdOfArticles(themeId)
             val endId = getEndIdOfArticles(themeId)
-            val articleTitles = getArticleStringList(context, themeId)
+            val articleTitles = getArticleStringList(themeId)
             for (id in startId..endId) {
                 articleList.add(
                     Article(
@@ -28,7 +41,7 @@ object ArticleData {
                         themeId = themeId,
                         title = articleTitles[id - startId],
                         imageSrc = R.drawable.item_image,
-                        desc = descrStringArray[themeId]
+                        desc = articlesDescription?.get(themeId) ?: ""
                     )
                 )
             }
@@ -36,15 +49,15 @@ object ArticleData {
         return articleList
     }
 
-    fun getByThemeId(context: Context, themeId: Int): List<Article> {
-        val unfilteredItems = getList(context)
+    fun getByThemeId (themeId: Int): List<Article> {
+        val unfilteredItems = getList()
         return unfilteredItems.filter {
             it.themeId == themeId
         }
     }
 
-    fun getById(context: Context, id: Int): Article {
-        return getList(context).first { it.id == id.toString() }
+    fun getById (id: Int): Article {
+        return getList().first { it.id == id.toString() }
     }
 
     private fun getStartIdOfArticles (themeId: Int): Int {
@@ -69,18 +82,16 @@ object ArticleData {
         }
     }
 
-    private fun getArticleStringList (context: Context, themeId: Int): Array<String> {
-        return when (themeId) {
-            1 -> context.resources.getStringArray(R.array.detaling_article_title)
-            2 -> context.resources.getStringArray(R.array.tech_article_titles)
-            3 -> context.resources.getStringArray(R.array.textures_article_titles)
-            4 -> context.resources.getStringArray(R.array.supply_article_titles)
-            else -> context.resources.getStringArray(R.array.blocking_article_titles)
+    private fun getArticleStringList (themeId: Int): Array<String> {
+        if (themeId in 0..5) {
+            return articleTitles[themeId]
         }
+        return articleTitles[0]
     }
 
     fun recreateList(context: Context) {
+        init(context)
         items = null
-        items = createList(context)
+        items = createList()
     }
 }
