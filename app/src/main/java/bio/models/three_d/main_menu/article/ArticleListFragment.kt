@@ -39,7 +39,7 @@ class ArticleListFragment: Fragment(R.layout.fragment_article_list), AdapterList
             layoutManager = LinearLayoutManager(context)
             adapter = listAdapter
         }
-        listAdapter.submitList(ArticleData.getByThemeId(requireContext(), navArgs.themeId))
+        listAdapter.submitList(ArticleData.getByThemeId(navArgs.themeId))
     }
 
     private fun setTitle() {

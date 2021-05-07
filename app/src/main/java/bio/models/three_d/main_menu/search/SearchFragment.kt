@@ -60,7 +60,7 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
                     binding.infoLayout.root.visibility = View.VISIBLE
                     return
                 }
-                val articleList = ArticleData.getList(requireContext())
+                val articleList = ArticleData.getList()
                 val filteredArticleList = SearchArticleData
                     .filterArticleItems(s.toString(), articleList)
                 Log.d("Error", "${articleList.size}")

@@ -52,8 +52,8 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         val articleId = navArgs.articleId
         articleId.let {
             showArticle()
-            val article = ArticleData.getById(requireContext(), it)
-            val theme = ThemeData.getById(requireContext(), article.themeId)
+            val article = ArticleData.getById(it)
+            val theme = ThemeData.getById(article.themeId)
             this.article = Article(articleId, theme?.id?.toInt() ?: 0)
             updateHeader(theme?.theme ?: "", article.title)
             checkIfFavourite()
