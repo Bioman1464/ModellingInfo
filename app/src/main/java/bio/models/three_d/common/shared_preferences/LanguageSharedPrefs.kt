@@ -3,7 +3,7 @@ package bio.models.three_d.common.shared_preferences
 import android.content.Context
 import android.content.SharedPreferences
 import bio.models.three_d.common.SingletonHolder
-import bio.models.three_d.main_menu.Language
+import bio.models.three_d.Language
 
 class LanguageSharedPrefs private constructor(context: Context){
 
