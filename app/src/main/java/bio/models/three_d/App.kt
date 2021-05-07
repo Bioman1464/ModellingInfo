@@ -1,9 +1,11 @@
-package bio.models.three_d.main_menu
+package bio.models.three_d
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import bio.models.three_d.common.shared_preferences.ThemeSharedPrefs
 import bio.models.three_d.common.shared_preferences.LanguageSharedPrefs
+import bio.models.three_d.main_menu.common.article.ArticleData
+import bio.models.three_d.main_menu.home.theme.ThemeData
 import com.yariksoffice.lingver.Lingver
 import com.yariksoffice.lingver.store.PreferenceLocaleStore
 import java.util.*
@@ -14,6 +16,7 @@ class App: Application() {
         super.onCreate()
         configureTheme()
         configureLanguage()
+        initDataObjects()
     }
 
     private fun configureLanguage() {
@@ -34,6 +37,11 @@ class App: Application() {
                 return
             }
         }
+    }
+
+    private fun initDataObjects() {
+        ThemeData.init(this)
+        ArticleData.init(this)
     }
 }
 
