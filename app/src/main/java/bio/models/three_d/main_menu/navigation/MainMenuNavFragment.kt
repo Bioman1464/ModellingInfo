@@ -13,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainMenuNavFragment : Fragment() {
 
     private lateinit var nestedNavController: NavController
-    private lateinit var mainNavController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +21,6 @@ class MainMenuNavFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        mainNavController = Navigation.findNavController(requireActivity(), R.id.main_nav_host_fragment)
 
         val nestedNavHostFragment = childFragmentManager
             .findFragmentById(R.id.menu_nav_host_fragment) as? NavHostFragment

@@ -25,14 +25,12 @@
             android:layout_marginBottom="16dp"
             android:layout_marginHorizontal="30dp"
             android:gravity="bottom">
-
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_search"
                 android:layout_marginBottom="7dp"
                 android:layout_marginEnd="5dp"/>
-
             <EditText
                 android:id="@+id/article_search"
                 android:layout_width="match_parent"
@@ -42,18 +40,14 @@
                 android:maxLines="1"
                 android:backgroundTint="@color/primary"
                 android:textColor="@color/textColorSecondary"/>
-
         </LinearLayout>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="0.3dp"
             android:background="@color/secondary"/>
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <androidx.recyclerview.widget.RecyclerView
                 android:visibility="gone"
                 android:id="@+id/search_recycler"
@@ -65,11 +59,9 @@
                 tools:listitem="@layout/article_item"
                 tools:itemCount="5"
                 android:layout_marginHorizontal="20dp"/>
-
             <include
                 android:id="@+id/info_layout"
                 layout="@layout/search_info_view"/>
-
         </FrameLayout>
 
     </LinearLayout>

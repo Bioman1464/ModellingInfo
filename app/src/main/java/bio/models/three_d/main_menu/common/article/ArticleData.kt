@@ -28,7 +28,7 @@ object ArticleData {
         return items as List<Article>
     }
 
-    fun createList (): List<Article> {
+    private fun createList (): List<Article> {
         val articleList = arrayListOf<Article>()
         for (themeId in 0..4) {
             val startId = getStartIdOfArticles(themeId)

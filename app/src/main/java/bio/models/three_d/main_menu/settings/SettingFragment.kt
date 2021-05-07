@@ -43,12 +43,9 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
         themeSharedPrefs = ThemeSharedPrefs.getInstance(requireContext())
         languageSharedPrefs = LanguageSharedPrefs.getInstance(requireContext())
         auth = FirebaseAuth.getInstance()
-
         setSettingsConfiguration()
         setLanguageConfiguration()
-
         setClickListeners()
-
         configureUserData()
     }
 
