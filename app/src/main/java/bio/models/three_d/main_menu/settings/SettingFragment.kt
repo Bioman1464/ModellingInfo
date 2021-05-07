@@ -18,7 +18,7 @@ import bio.models.three_d.common.firebase.data.FirebaseDataHelper
 import bio.models.three_d.common.firebase.user.FirebaseUserHelper
 import bio.models.three_d.common.shared_preferences.LanguageSharedPrefs
 import bio.models.three_d.databinding.FragmentSettingBinding
-import bio.models.three_d.main_menu.Language
+import bio.models.three_d.Language
 import bio.models.three_d.main_menu.common.article.ArticleData
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -208,7 +208,5 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
     private fun restart() {
         val i = Intent(requireContext(), MainMenuActivity::class.java)
         startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
-
-        Toast.makeText(requireContext(), "Activity restarted", Toast.LENGTH_SHORT).show()
     }
 }
