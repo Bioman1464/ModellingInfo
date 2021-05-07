@@ -59,8 +59,7 @@
 
     <string-array name="tech_article_titles">
         <item>Low-poly</item>
-        <item>Topology</item>
-        <item>Технические</item>
+        <item>Топология</item>
         <item>UV-развертка</item>
         <item>High-poly</item>
         <item>Bake</item>
@@ -80,7 +79,7 @@
         <item>Формы</item>
     </string-array>
 
-    <string-array name="tech_article_bodies">
+    <string-array name="article_bodies">
         <item>Nike Enters 10-Year Partnership With Major League Baseball! </item>
         <item>Indonesia Masters – Saina Nehwal sails into semifinals PV Sindhu, Kidambi Srikanth lose in quarters!</item>
         <item>College Basketball 2018–19 Player of the Year Power Rankings Everyone is chasing Dukes Zion Williamson!</item>
