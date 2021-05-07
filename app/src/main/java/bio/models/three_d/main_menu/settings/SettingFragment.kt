@@ -191,9 +191,12 @@ class SettingFragment : Fragment(R.layout.fragment_setting) {
 
     private fun updateUiAccountInfo(userImageUrl: Uri?, userName: String?) {
         if (userImageUrl != null) {
-            ImageDownloadTask(binding.userImage).execute(userImageUrl.toString())
+            ImageDownloadTask(binding.googleUserImage).execute(userImageUrl.toString())
+            binding.googleButton.text = requireContext().resources.getString(R.string.logOut)
+
         } else {
-            binding.userImage.setImageResource(R.drawable.ic_user_image)
+            binding.googleUserImage.setImageResource(R.drawable.ic_google)
+            binding.googleButton.text = requireContext().resources.getString(R.string.logIn)
         }
         binding.userNickname.text = userName ?: getString(R.string.nickname)
     }
