@@ -7,31 +7,40 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import bio.models.three_d.R
-import bio.models.three_d.common.data.Article
-import bio.models.three_d.common.shared_preferences.ArticleSharedPrefs
 import bio.models.three_d.common.UserAccount
 import bio.models.three_d.common.article.ArticleRepository
+import bio.models.three_d.common.data.Article
 import bio.models.three_d.common.data.ArticleHelper
 import bio.models.three_d.common.firebase.data.FirebaseDataHelper
+import bio.models.three_d.common.shared_preferences.ArticleSharedPrefs
+import bio.models.three_d.common.shared_preferences.FontSharedPrefs
 import bio.models.three_d.common.shared_preferences.LanguageSharedPrefs
+import bio.models.three_d.common.shared_preferences.ThemeSharedPrefs
 import bio.models.three_d.databinding.FragmentArticleBinding
 import bio.models.three_d.main_menu.common.article.ArticleData
 import bio.models.three_d.main_menu.home.theme.ThemeData
 import com.yariksoffice.lingver.Lingver
+import java.lang.StringBuilder
+
 
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
     private val TAG = this::class.java.simpleName
     private lateinit var navArgs: ArticleFragmentArgs
     private lateinit var binding: FragmentArticleBinding
+    private lateinit var themeSharedPrefs: ThemeSharedPrefs
+    private lateinit var fontSizeSharedPrefs: FontSharedPrefs
     private lateinit var prefsArticle: ArticleSharedPrefs
+
     private lateinit var article: Article
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navArgs = ArticleFragmentArgs.fromBundle(requireArguments())
         binding = FragmentArticleBinding.bind(view)
+        themeSharedPrefs = ThemeSharedPrefs.getInstance(requireContext())
         prefsArticle = ArticleSharedPrefs.getInstance(requireContext())
+        fontSizeSharedPrefs = FontSharedPrefs.getInstance(requireContext())
         showArticleData()
         initView()
         setLocale()
@@ -51,7 +60,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     private fun showArticleData() {
         val articleId = navArgs.articleId
         articleId.let {
-            showArticle()
+            showArticle(1)
             val article = ArticleData.getById(it)
             val theme = ThemeData.getById(article.themeId)
             this.article = Article(articleId, theme?.id?.toInt() ?: 0)
@@ -146,13 +155,26 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         }
     }
 
-    private fun showArticle() {
-        //TODO:: get article file by id
-        showArticleFromHtml("myfile.html")
+    private fun showArticle(id: Int) {
+        val uri = StringBuilder("articles/")
+        if (id in 0..21) {
+            uri.append("$id").append("/article_")
+        }
+        when(themeSharedPrefs.getTheme()) {
+            0 -> uri.append("day")
+            1 -> uri.append("night")
+        }
+        uri.append(".html")
+        Log.d(TAG, uri.toString())
+        showArticleFromHtml(uri.toString())
     }
 
+    private fun fontSize(): Int {
+        return fontSizeSharedPrefs.getFontSize()
+    }
     private fun showArticleFromHtml(fileName: String) {
         binding.articleWebView.run {
+            settings.defaultFontSize = fontSize()
             settings.javaScriptEnabled = true
             setBackgroundColor(Color.TRANSPARENT)
             loadUrl("file:///android_asset/$fileName")
