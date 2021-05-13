@@ -35,48 +35,50 @@
     <string name="find">Search</string>
 
     <string-array name="theme_titles">
-        <item>Blocking</item>
-        <item>Detailing</item>
-        <item>Technical\nstages</item>
+        <item>Draft</item>
+        <item>Grid</item>
+        <item>Flat Pattern</item>
+        <item>Seal</item>
         <item>Textures</item>
-        <item>Innings</item>
     </string-array>
 
-    <string-array name="blocking_article_titles">
+    <string-array name="article_titles_1">
         <item>General information</item>
-        <item>Primitives and large forms</item>
-        <item>Silhouette</item>
+        <item>References</item>
+        <item>Analysis of the model</item>
+        <item>Blocking</item>
+        <item>Detail</item>
         <item>Paint the draft with color</item>
-        <item>Frequent mistakes</item>
+        <item>Common mistakes</item>
     </string-array>
 
-    <string-array name="detaling_article_title">
-        <item>Medium Forms</item>
-        <item>How to animate a model</item>
-        <item>\"Anatomy\" of the model</item>
-        <item>Damage</item>
+    <string-array name="article_titles_2">
+        <item>General information</item>
+        <item>Low Poly</item>
+        <item>Hign Poly</item>
+        <item>Mid Poly</item>
     </string-array>
 
-    <string-array name="tech_article_titles">
-        <item>Low-poly</item>
-        <item>Topology</item>
-        <item>UV mapping</item>
-        <item>High-poly</item>
-        <item>Bake</item>
+    <string-array name="article_titles_3">
+        <item>UV scan</item>
+        <item>Unique mapping</item>
+        <item>Tile mapping</item>
+        <item>Atlas</item>
+        <item>Common Mistakes</item>
     </string-array>
 
-    <string-array name="textures_article_titles">
+    <string-array name="article_titles_4">
+        <item>General information</item>
+        <item>Preparation</item>
+        <item>Normal map</item>
+        <item>Ambient Occlusion</item>
+        <item>Color ID</item>
+        <item>Artifacts</item>
+    </string-array>
+
+    <string-array name="article_titles_5">
         <item>Material creation</item>
         <item>PBR</item>
-    </string-array>
-
-    <string-array name="supply_article_titles">
-        <item>Composition Rules</item>
-        <item>Horizon</item>
-        <item>Focus</item>
-        <item>Accents and rhythms</item>
-        <item>Light and Shadow</item>
-        <item>Forms</item>
     </string-array>
 
     <string-array name="article_bodies">
