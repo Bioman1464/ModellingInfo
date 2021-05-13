@@ -34,7 +34,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/article_recycler"
-            android:layout_marginTop="30dp"
+            android:clipToPadding="false"
+            android:paddingTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="never"
