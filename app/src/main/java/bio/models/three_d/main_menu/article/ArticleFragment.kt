@@ -60,7 +60,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     private fun showArticleData() {
         val articleId = navArgs.articleId
         articleId.let {
-            showArticle(1)
+            showArticle(articleId)
             val article = ArticleData.getById(it)
             val theme = ThemeData.getById(article.themeId)
             this.article = Article(articleId, theme?.id?.toInt() ?: 0)
@@ -156,9 +156,14 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     }
 
     private fun showArticle(id: Int) {
-        val uri = StringBuilder("articles/")
-        if (id in 0..21) {
-            uri.append("$id").append("/article_")
+        val uri = StringBuilder("")
+        if (id in 0..23) {
+            uri.append("article_")
+            if (arrayListOf(6, 22, 23).contains(id)) {
+                uri.append("other_")
+            } else {
+                uri.append("$id").append("_")
+            }
         }
         when(themeSharedPrefs.getTheme()) {
             0 -> uri.append("day")
@@ -168,6 +173,9 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         Log.d(TAG, uri.toString())
         showArticleFromHtml(uri.toString())
     }
+
+    //6, 22, 23
+
 
     private fun fontSize(): Int {
         return fontSizeSharedPrefs.getFontSize()
