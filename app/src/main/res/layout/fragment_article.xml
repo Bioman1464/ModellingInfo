@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".main_menu.article.ArticleFragment">
 
-    <!--<ImageView
-        android:id="@+id/background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_day"/>-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
