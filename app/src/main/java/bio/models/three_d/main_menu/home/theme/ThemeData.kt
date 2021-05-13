@@ -38,9 +38,9 @@ object ThemeData {
         val picList = listOf(
             R.drawable.ic_cubes,
             R.drawable.ic_details,
-            R.drawable.ic_gears,
-            R.drawable.ic_brush,
-            R.drawable.ic_section
+            R.drawable.ic_scan,
+            R.drawable.ic_bake,
+            R.drawable.ic_brush
         )
         val list = ArrayList<Theme>()
         for(item in themeTitles.indices) {
