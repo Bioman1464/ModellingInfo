@@ -50,7 +50,7 @@ object ArticleData {
     }
 
     fun getArticleDescription(articleId: Int): String {
-        if (articleId in 0..articlesDescription.size) {
+        if (articleId in articlesDescription.indices) {
             return articlesDescription[articleId] ?: ""
         }
         return ""
