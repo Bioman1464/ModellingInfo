@@ -34,11 +34,11 @@ object ArticleHelper {
 
     fun themeIdById(articleId: Int): Int {
         return when (articleId) {
-            in 0..4 -> 0
-            in 5..8 -> 1
-            in 9..13 -> 2
-            in 14..15 -> 3
-            in 16..21 -> 4
+            in 0..6 -> 0
+            in 7..10 -> 1
+            in 11..15 -> 2
+            in 16..21 -> 3
+            in 22..23 -> 4
             else -> 0
         }
     }
