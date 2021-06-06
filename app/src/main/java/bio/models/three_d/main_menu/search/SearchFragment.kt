@@ -63,7 +63,6 @@ class SearchFragment : Fragment(R.layout.fragment_search), AdapterListener {
                 val articleList = ArticleData.getList()
                 val filteredArticleList = SearchArticleData
                     .filterArticleItems(s.toString(), articleList)
-                Log.d("Error", "${articleList.size}")
                 try {
                     if (filteredArticleList.isNullOrEmpty()) {
                         binding.searchRecycler.visibility = View.GONE

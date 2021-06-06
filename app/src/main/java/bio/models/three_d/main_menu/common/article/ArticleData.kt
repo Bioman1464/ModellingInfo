@@ -1,10 +1,12 @@
 package bio.models.three_d.main_menu.common.article
 
 import android.content.Context
+import android.util.Log
 import bio.models.three_d.R
 
 object ArticleData {
 
+    val TAG = this::class.java.simpleName
     private var articlesDescription: Array<String> = arrayOf()
     private var articleTitles: MutableList<Array<String>> = mutableListOf()
     private var items: List<Article>? = null
@@ -30,7 +32,7 @@ object ArticleData {
 
     private fun createList (): List<Article> {
         val articleList = arrayListOf<Article>()
-        for (themeId in 0..articleTitles.size) {
+        for (themeId in articleTitles.indices) {
             val startId = getStartIdOfArticles(themeId)
             val endId = getEndIdOfArticles(themeId)
             val articleTitles = getArticleStringList(themeId)

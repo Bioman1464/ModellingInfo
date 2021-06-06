@@ -34,20 +34,15 @@ object SearchArticleData {
         if (articleContent.contains(searchInput, true)) {
             var startIndex = articleContent.indexOf(searchInput, ignoreCase = true)
             var endIndex = startIndex + searchInput.length
-            Log.d("${this::getPartFromArticleContent.name}", "--Start index: ${startIndex}--")
-            Log.d("${this::getPartFromArticleContent.name}", "--End index: ${endIndex}--")
             while ((endIndex - startIndex) < 24 && (startIndex > 0 || endIndex < articleContent.length)) {
-                if (startIndex > 0/* && searchInput.length/2 < 12 && (startIndex + searchInput.length/2) < 12*/) {
+                if (startIndex > 0) {
                     startIndex-=1
                 }
                 if (endIndex < articleContent.length) {
                     endIndex+=1
                 }
-                Log.d("${this::getPartFromArticleContent.name}", "End - Start: ${endIndex - startIndex}")
-                Log.d("${this::getPartFromArticleContent.name}", "End index: ${endIndex}")
             }
             val contentPart = articleContent.subSequence(startIndex, endIndex)
-            Log.d("${this::getPartFromArticleContent.name}", "Content length: ${articleContent.length}")
             return (if(startIndex == 0) "" else "... ") +
                     "$contentPart" +
                     if(endIndex == articleContent.length)  "" else " ..."
